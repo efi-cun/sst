@@ -15,10 +15,7 @@ const Modulo6 = {
                 <p class="section-subtitle">Conoce los canales y comités de apoyo diseñados para garantizar tu bienestar y participación en la CUN</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/Introducion%20Modulo%206.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/9AvZzI7xU-I" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 Introducción al Módulo 6 — Canales de Participación y Comités</p>
 
@@ -46,10 +43,7 @@ const Modulo6 = {
                 <p class="section-subtitle">Normativa nacional que respalda los comités de apoyo y participación laboral en Colombia</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/Marco%20Legal_modulo_6.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/ltlIFAUE4L0" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 Marco Legal y Reglamentación de los Comités de SST</p>
 
@@ -165,10 +159,7 @@ const Modulo6 = {
                 <p class="section-subtitle">Comité Paritario de Seguridad y Salud en el Trabajo: canal de comunicación y prevención de riesgos</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/COPASST%20Y%20Prevencion_modulo_6.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/-n1Ve0QfF_o" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 COPASST y la Gestión Preventiva de Riesgos</p>
 
@@ -205,10 +196,7 @@ const Modulo6 = {
                 <p class="section-subtitle">Mediación, prevención del acoso laboral y fomento de un clima de trabajo saludable</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/Convivencia%20Laboral_modulo_6.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/aNJ2UliGA1o" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 Comité de Convivencia Laboral (CCL): Mediación y Salud Mental</p>
 
@@ -252,10 +240,7 @@ const Modulo6 = {
                 <p class="section-subtitle">Promoción de entornos de trabajo y estudio libres de violencias y discriminación</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/Equidad%20y%20Diversidad_modulo_6.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/za-6p3Nlv44" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 Equidad de Género y Atención a la Diversidad en la CUN</p>
 
@@ -286,10 +271,7 @@ const Modulo6 = {
                 <p class="section-subtitle">Mira el video de casos prácticos y luego decide a qué comité debes dirigirte en cada situación</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/Casos_precticos_modulo_6.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/QmaUYrhV_XU" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 Casos Prácticos de los Comités de Apoyo SST CUN</p>
 

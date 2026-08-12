@@ -15,10 +15,7 @@ const Modulo3 = {
                 <p class="section-subtitle">Aprende a identificar, reportar e investigar los eventos laborales en la CUN</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/Introducion_modulo3.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/S1QoOLQIk5E" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 Introducción al Módulo 3 — Conceptos Iniciales</p>
 
@@ -43,10 +40,7 @@ const Modulo3 = {
                 <p class="section-subtitle">Diferencias técnicas entre Accidente, Incidente y Enfermedad Laboral</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/1_Marco_Legal_modulo3.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/WZfIGlUqkmI" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 Marco Legal y Definición de Eventos en Colombia</p>
 
@@ -167,10 +161,7 @@ const Modulo3 = {
                 <p class="section-subtitle">El reporte rápido es un deber y permite recibir atención oportuna</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/2_Proceso_reporte_modulo3.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/uo4F0Dc-A-c" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 Flujo de Reporte y Tiempos de Ley</p>
 
@@ -219,10 +210,7 @@ const Modulo3 = {
                 <p class="section-subtitle">Proceso obligatorio para identificar causas y prevenir repeticiones</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/3_Investigaciones_modulo3.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/4toKQtN3_Q0" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 Investigación de Accidentes según Res. 1401 de 2007</p>
 
@@ -250,10 +238,7 @@ const Modulo3 = {
                 <p class="section-subtitle">Metodologías para encontrar por qué ocurrió el evento y corregirlo</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/4_analisis_causas_Modulo3.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/iFiZ945fr-k" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 Metodologías de Análisis: 5 Porqués, Ishikawa y Árbol de Causas</p>
 
@@ -318,10 +303,7 @@ const Modulo3 = {
                 <p class="section-subtitle">Clasifica los siguientes eventos según lo aprendido en el módulo</p>
 
                 <div class="video-container" style="margin-bottom: 1.5rem;">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/Casos_practicos_modulo3.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/iKxqgLDn2Do" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 Casos Prácticos y Ejemplos de Clasificación</p>
 

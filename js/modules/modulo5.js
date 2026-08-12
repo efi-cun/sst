@@ -15,10 +15,7 @@ const Modulo5 = {
                 <p class="section-subtitle">Comprende la importancia de identificar peligros y cuidar de tu salud en el trabajo</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/introduccion%20modulo%205.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/2RBuq29KDDU" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 Introducción al Módulo 5 — Conceptos Generales de Peligros y Prevención</p>
 
@@ -46,10 +43,7 @@ const Modulo5 = {
                 <p class="section-subtitle">Un enfoque proactivo y participativo para la prevención laboral</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/Nuevo%20Enfoque%20SST%20modulo%205.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/fXknJfTV96g" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 El Nuevo Enfoque en Seguridad y Salud en el Trabajo</p>
 
@@ -84,10 +78,7 @@ const Modulo5 = {
                 <p class="section-subtitle">Leyes y guías de obligatorio cumplimiento en Colombia</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/Marco%20Legarl%20modulo%205.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/ZRcEnsuTxqI" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 Marco Legal Colombiano y Metodologías de SST</p>
 
@@ -122,10 +113,7 @@ const Modulo5 = {
                 <p class="section-subtitle">Identifica los 7 tipos de peligro en el entorno laboral. Toca los nodos para ver detalles.</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/Categorias%20de%20peligros%20modulo%205.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/oT3D309zaK4" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 7 Pilares — Clasificación de Peligros según GTC 45</p>
 
@@ -296,10 +284,7 @@ const Modulo5 = {
                 <p class="section-subtitle">Cuidado del bienestar emocional en las actividades diarias</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/Riesgo%20psicosocial%20modulo%205.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/BUinQgvzWYw" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 Manejo del Riesgo Psicosocial y Salud Mental en la CUN</p>
 
@@ -339,10 +324,7 @@ const Modulo5 = {
                 <p class="section-subtitle">Hábitos conscientes orientados a la integridad física y mental</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/Autocuidado%20modulo%205.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/RZTnAaxAs7A" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 Prácticas de Autocuidado e Higiene Ocupacional</p>
 
@@ -402,10 +384,7 @@ const Modulo5 = {
                 <p class="section-subtitle">Realiza breves descansos para prevenir la fatiga muscular y el estrés</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/Pausas%20Activas%20modulo%205.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/UaXiWtIdavs" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 Ejercicios Recomendados de Pausas Activas</p>
 
@@ -434,10 +413,7 @@ const Modulo5 = {
                 <p class="section-subtitle">Estudia situaciones cotidianas y aplica pautas de prevención</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/Casos%20y%20autocuidado%20modulo5.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/Tp-IK3a8vRs" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 Análisis de Casos de Autocuidado y Peligros</p>
 

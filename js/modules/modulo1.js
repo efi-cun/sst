@@ -15,10 +15,7 @@ const Modulo1 = {
                 <p class="section-subtitle">Conoce lo que aprenderás en este programa de formación</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" poster="" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/Introducion.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/qJFB96vTPwk" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 Introducción al curso de Reinducción SST</p>
 
@@ -93,10 +90,7 @@ const Modulo1 = {
                 </div>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/1_modulo.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/vRXen2f_xPs" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 Fundamentos de SST — Política y Sistema de Gestión</p>
             `
@@ -157,7 +151,7 @@ const Modulo1 = {
                         <div class="icon-stat-value">SG-SST</div>
                         <div class="icon-stat-label">Sistema de Gestión</div>
                     </div>
-                    <div class="icon-stat anim-glow" style="animation-delay:0.2s; cursor:pointer;" onclick="App.openVideoPopup('AURORA Seguros de Vida — Nuestra ARL', 'assets/video/Aurora.mp4')">
+                    <div class="icon-stat anim-glow" style="animation-delay:0.2s; cursor:pointer;" onclick="App.openVideoPopup('AURORA Seguros de Vida — Nuestra ARL', 'https://www.youtube.com/watch?v=k2SZ-3F01Rk')">
                         <div class="icon-stat-icon">🏥</div>
                         <div class="icon-stat-value">AURORA</div>
                         <div class="icon-stat-label">Nuestra ARL</div>
@@ -231,10 +225,7 @@ const Modulo1 = {
                 <p class="section-subtitle">Educación en la cultura sostenible para la reducción de impactos ambientales</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/Gestion_ambiental.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/L_FcQJN1tms" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 Gestión Ambiental</p>
 
@@ -292,10 +283,7 @@ const Modulo1 = {
                 <p class="section-subtitle">Tips y recomendaciones para tu día a día</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/Accion_diaria.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/SwPinMZWV9M" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 Acción Diaria — Tips de Seguridad</p>
 

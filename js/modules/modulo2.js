@@ -15,10 +15,7 @@ const Modulo2 = {
                 <p class="section-subtitle">Cada sede cuenta con un plan de emergencias con estrategias de respuesta oportunas</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/intro_modulo_2.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/yocZCQhV9O4" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 Introducción a los Planes de Emergencia CUN</p>
 
@@ -86,10 +83,7 @@ const Modulo2 = {
                 <p class="section-subtitle">Familiarízate con los términos clave para actuar con seguridad en caso de emergencia</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/Conceptos_Basicos.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/dGAUu16krRE" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 Conceptos Básicos de Emergencias</p>
 
@@ -125,10 +119,7 @@ const Modulo2 = {
                 <p class="section-subtitle">El grupo interno capacitado para prevenir y reaccionar ante situaciones de riesgo</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/Brigada_de_emergencia.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/mEpJXwJJ5cM" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 La Brigada de Emergencias CUN</p>
 
@@ -169,10 +160,7 @@ const Modulo2 = {
                 <p class="section-subtitle">Conoce las rutas de evacuación de tu sede y sigue siempre las señalizaciones</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/Plan_de_Evacuacion.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/GJALSA6LYTM" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 Protocolos de Evacuación CUN</p>
 
@@ -228,10 +216,7 @@ const Modulo2 = {
                 <p class="section-subtitle">Reporta novedades de seguridad y mantente comunicado con el área de SST</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/Consejo_y_contacto.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/Hx2RJJdaeL4" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 Consejos de Seguridad y Canales CUN</p>
 

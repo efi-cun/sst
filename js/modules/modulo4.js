@@ -15,10 +15,7 @@ const Modulo4 = {
                 <p class="section-subtitle">Identificación de peligros y valoración de riesgos en el trabajo</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/Introduccion_modulo_4.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/wIk2KeyPg74" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 Introducción al Módulo 4 — Conceptos Generales</p>
 
@@ -43,10 +40,7 @@ const Modulo4 = {
                 <p class="section-subtitle">Diferencia entre el comportamiento del trabajador y las circunstancias físicas del entorno</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/Actos%20y%20Condiciones%20inseguras.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/hLJsd6MzKgo" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 Actos y Condiciones Inseguras en el Entorno Laboral</p>
 
@@ -150,10 +144,7 @@ const Modulo4 = {
                 <p class="section-subtitle">Comprender la diferencia es clave para la prevención efectiva</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/Peligro%20y%20riesgo.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/Ce8N6I6kG4A" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 Peligro vs Riesgo en el SG-SST</p>
 
@@ -246,10 +237,7 @@ const Modulo4 = {
                 <p class="section-subtitle">Conoce los pilares legales y metodologías en Colombia para la prevención de riesgos</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/decreto%201072%20y%20gtc%2045.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/kEFd0KBf7eU" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 Normatividad colombiana del SG-SST</p>
 
@@ -268,10 +256,10 @@ const Modulo4 = {
                     <p style="margin-top: 0.5rem; font-size: 0.9rem;">Haz clic en los botones de abajo para abrir los videos explicativos correspondientes a cada norma:</p>
                     
                     <div class="glowing-btn-container">
-                        <button class="btn btn-glow-primary" onclick="App.openVideoPopup('Decreto 1072 de 2015 — Compendio Legal', 'assets/video/Decreto%201072.mp4')">
+                        <button class="btn btn-glow-primary" onclick="App.openVideoPopup('Decreto 1072 de 2015 — Compendio Legal', 'https://www.youtube.com/watch?v=1RQY2fK7FFQ')">
                             📹 Ver Video: Decreto 1072
                         </button>
-                        <button class="btn btn-glow-accent" onclick="App.openVideoPopup('Guía Técnica GTC 45 — Matriz de Peligros', 'assets/video/GTC45.mp4')">
+                        <button class="btn btn-glow-accent" onclick="App.openVideoPopup('Guía Técnica GTC 45 — Matriz de Peligros', 'https://www.youtube.com/watch?v=uU8h2J7-I-I')">
                             📹 Ver Video: GTC 45
                         </button>
                     </div>
@@ -286,10 +274,7 @@ const Modulo4 = {
                 <p class="section-subtitle">Aprende cómo se valora técnicamente la prioridad de los riesgos</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/Calculo%20de%20riesgo.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/EURRPGcWu4E" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 Metodología de Cálculo de Riesgo (Probabilidad x Consecuencia)</p>
 
@@ -318,10 +303,7 @@ const Modulo4 = {
                 <p class="section-subtitle">El orden técnico obligatorio en Colombia para mitigar y controlar los riesgos</p>
 
                 <div class="video-container">
-                    <video controls preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="assets/video/Jerarquia%20de%20controle.mp4" type="video/mp4">
-                        Tu navegador no soporta video HTML5.
-                    </video>
+                    <iframe src="https://www.youtube-nocookie.com/embed/QgGqhj154Vo" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
                 <p class="video-caption">📹 Jerarquía de Controles de Seguridad</p>
 

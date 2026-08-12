@@ -94,63 +94,77 @@ Start-Process $bindingAddress
 
 try {
     while ($listener.IsListening) {
-        $context = $listener.GetContext()
-        $request = $context.Request
-        $response = $context.Response
+        $context = $null
+        try {
+            $context = $listener.GetContext()
+            $request = $context.Request
+            $response = $context.Response
 
-        # Obtener la ruta relativa
-        $urlPath = $request.Url.LocalPath
-        if ($urlPath -eq "/") {
-            $urlPath = "/index.html"
-        }
-
-        # Ruta física del archivo
-        $cleanPath = $urlPath.Replace('/', '\')
-        $filePath = Join-Path $PSScriptRoot $cleanPath
-
-        if (Test-Path $filePath -PathType Leaf) {
-            # Determinar el tipo MIME
-            $extension = [System.IO.Path]::GetExtension($filePath).ToLower()
-            $mimeType = switch ($extension) {
-                ".html" { "text/html; charset=utf-8" }
-                ".htm" { "text/html; charset=utf-8" }
-                ".css" { "text/css; charset=utf-8" }
-                ".js" { "application/javascript; charset=utf-8" }
-                ".json" { "application/json; charset=utf-8" }
-                ".png" { "image/png" }
-                ".jpg" { "image/jpeg" }
-                ".jpeg" { "image/jpeg" }
-                ".gif" { "image/gif" }
-                ".svg" { "image/svg+xml" }
-                ".mp4" { "video/mp4" }
-                ".mp3" { "audio/mpeg" }
-                ".pdf" { "application/pdf" }
-                default { "application/octet-stream" }
+            # Obtener la ruta relativa
+            $urlPath = $request.Url.LocalPath
+            if ($urlPath -eq "/") {
+                $urlPath = "/index.html"
             }
 
+            # Ruta física del archivo
+            $cleanPath = $urlPath.Replace('/', '\')
+            $filePath = Join-Path $PSScriptRoot $cleanPath
+
+            if (Test-Path $filePath -PathType Leaf) {
+                # Determinar el tipo MIME
+                $extension = [System.IO.Path]::GetExtension($filePath).ToLower()
+                $mimeType = switch ($extension) {
+                    ".html" { "text/html; charset=utf-8" }
+                    ".htm" { "text/html; charset=utf-8" }
+                    ".css" { "text/css; charset=utf-8" }
+                    ".js" { "application/javascript; charset=utf-8" }
+                    ".json" { "application/json; charset=utf-8" }
+                    ".png" { "image/png" }
+                    ".jpg" { "image/jpeg" }
+                    ".jpeg" { "image/jpeg" }
+                    ".gif" { "image/gif" }
+                    ".svg" { "image/svg+xml" }
+                    ".mp4" { "video/mp4" }
+                    ".mp3" { "audio/mpeg" }
+                    ".pdf" { "application/pdf" }
+                    default { "application/octet-stream" }
+                }
+
+                try {
+                    $bytes = [System.IO.File]::ReadAllBytes($filePath)
+                    $response.ContentType = $mimeType
+                    $response.ContentLength64 = $bytes.Length
+                    $response.OutputStream.Write($bytes, 0, $bytes.Length)
+                } catch {
+                    try {
+                        $response.StatusCode = 500
+                        $errorMessage = "Error 500 - No se pudo leer el archivo: $_"
+                        $bytes = [System.Text.Encoding]::UTF8.GetBytes($errorMessage)
+                        $response.ContentType = "text/plain; charset=utf-8"
+                        $response.ContentLength64 = $bytes.Length
+                        $response.OutputStream.Write($bytes, 0, $bytes.Length)
+                    } catch {}
+                }
+            } else {
+                # 404 Not Found
+                try {
+                    $response.StatusCode = 404
+                    $errorMessage = "Error 404 - Archivo no encontrado: $urlPath"
+                    $bytes = [System.Text.Encoding]::UTF8.GetBytes($errorMessage)
+                    $response.ContentType = "text/plain; charset=utf-8"
+                    $response.ContentLength64 = $bytes.Length
+                    $response.OutputStream.Write($bytes, 0, $bytes.Length)
+                } catch {}
+            }
             try {
-                $bytes = [System.IO.File]::ReadAllBytes($filePath)
-                $response.ContentType = $mimeType
-                $response.ContentLength64 = $bytes.Length
-                $response.OutputStream.Write($bytes, 0, $bytes.Length)
-            } catch {
-                $response.StatusCode = 500
-                $errorMessage = "Error 500 - No se pudo leer el archivo: $_"
-                $bytes = [System.Text.Encoding]::UTF8.GetBytes($errorMessage)
-                $response.ContentType = "text/plain; charset=utf-8"
-                $response.ContentLength64 = $bytes.Length
-                $response.OutputStream.Write($bytes, 0, $bytes.Length)
+                $response.Close()
+            } catch {}
+        } catch {
+            Write-Host "Error al procesar petición: $_" -ForegroundColor Yellow
+            if ($context -and $context.Response) {
+                try { $context.Response.Close() } catch {}
             }
-        } else {
-            # 404 Not Found
-            $response.StatusCode = 404
-            $errorMessage = "Error 404 - Archivo no encontrado: $urlPath"
-            $bytes = [System.Text.Encoding]::UTF8.GetBytes($errorMessage)
-            $response.ContentType = "text/plain; charset=utf-8"
-            $response.ContentLength64 = $bytes.Length
-            $response.OutputStream.Write($bytes, 0, $bytes.Length)
         }
-        $response.Close()
     }
 }
 catch {

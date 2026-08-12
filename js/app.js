@@ -585,8 +585,20 @@ const App = (() => {
         const existing = document.getElementById('video-popup-overlay');
         if (existing) existing.remove();
 
+        const isYouTube = videoSrc.includes('youtube.com') || videoSrc.includes('youtu.be');
+        let embedUrl = videoSrc;
+        
+        if (isYouTube) {
+            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+            const match = videoSrc.match(regExp);
+            if (match && match[2].length === 11) {
+                embedUrl = `https://www.youtube-nocookie.com/embed/${match[2]}`;
+            }
+        }
+
         const popup = document.createElement('div');
         popup.className = 'modal active';
+        popup.id = 'video-popup-overlay';
         popup.innerHTML = `
             <div class="modal-overlay" onclick="this.parentElement.remove()"></div>
             <div class="modal-content" style="max-width:800px; padding:1rem;">
@@ -595,9 +607,13 @@ const App = (() => {
                     <button class="modal-close" onclick="this.closest('.modal').remove()">✕</button>
                 </div>
                 <div class="video-container">
-                    <video controls autoplay style="position:absolute;top:0;left:0;width:100%;height:100%">
-                        <source src="${videoSrc}" type="video/mp4">
-                    </video>
+                    ${isYouTube ? `
+                        <iframe src="${embedUrl}" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
+                    ` : `
+                        <video controls autoplay style="position:absolute;top:0;left:0;width:100%;height:100%">
+                            <source src="${videoSrc}" type="video/mp4">
+                        </video>
+                    `}
                 </div>
             </div>
         `;

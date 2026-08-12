@@ -166,7 +166,19 @@ const ActivitiesEngine = (() => {
     }
 
     // ---- MATCH ----
+    let matchSelected = null;
+    let matchPairsFound = 0;
+    let matchTotalPairs = 0;
+    let matchCorrectCount = 0;
+    let matchHadErrors = false;
+
     function renderMatch(item) {
+        matchSelected = null;
+        matchPairsFound = 0;
+        matchTotalPairs = item.pares.length;
+        matchCorrectCount = 0;
+        matchHadErrors = false;
+
         const shuffledRight = [...item.pares].sort(() => Math.random() - 0.5);
         return `
             <div class="activity-badge">${getTypeIcon(item.type)} ${getTypeLabel(item.type)}</div>
@@ -186,11 +198,6 @@ const ActivitiesEngine = (() => {
             </div>
         `;
     }
-
-    let matchSelected = null;
-    let matchPairsFound = 0;
-    let matchTotalPairs = 0;
-    let matchCorrectCount = 0;
 
     function handleMatchClick(el) {
         if (el.classList.contains('matched')) return;
@@ -230,6 +237,7 @@ const ActivitiesEngine = (() => {
             matchPairsFound++;
         } else {
             // Wrong match
+            matchHadErrors = true;
             leftEl.classList.remove('selected');
             leftEl.classList.add('wrong');
             rightEl.classList.add('wrong');
@@ -237,21 +245,30 @@ const ActivitiesEngine = (() => {
                 leftEl.classList.remove('wrong');
                 rightEl.classList.remove('wrong');
             }, 600);
-            matchPairsFound++;
         }
 
         matchSelected = null;
-        matchTotalPairs = data.length;
 
         // All matched?
         if (matchPairsFound >= matchTotalPairs) {
-            const allCorrect = matchCorrectCount >= matchTotalPairs;
-            addScore(allCorrect);
+            addScore(!matchHadErrors);
         }
     }
 
     // ---- SORT ----
+    let sortSelected = null;
+    let sortPlaced = 0;
+    let sortCorrect = 0;
+    let sortTotal = 0;
+    let sortHadErrors = false;
+
     function renderSort(item) {
+        sortSelected = null;
+        sortPlaced = 0;
+        sortCorrect = 0;
+        sortTotal = item.elementos.length;
+        sortHadErrors = false;
+
         const shuffled = [...item.elementos].sort(() => Math.random() - 0.5);
         return `
             <div class="activity-badge">${getTypeIcon(item.type)} ${getTypeLabel(item.type)}</div>
@@ -275,11 +292,6 @@ const ActivitiesEngine = (() => {
         `;
     }
 
-    let sortSelected = null;
-    let sortPlaced = 0;
-    let sortCorrect = 0;
-    let sortTotal = 0;
-
     function handleSortClick(el) {
         if (el.classList.contains('placed')) return;
         document.querySelectorAll('.sort-item.selected').forEach(s => s.classList.remove('selected'));
@@ -292,19 +304,20 @@ const ActivitiesEngine = (() => {
         const catName = catEl.dataset.catName;
         const itemCat = sortSelected.dataset.cat;
 
-        sortPlaced++;
-        sortTotal = sortSelected.closest('.activity-sort').querySelectorAll('.sort-item').length;
-
         if (catName === itemCat) {
             sortCorrect++;
+            sortPlaced++;
+            
             const item = document.createElement('div');
             item.className = 'sort-placed-item correct';
             item.textContent = sortSelected.dataset.text;
             catEl.querySelector('.sort-cat-items').appendChild(item);
+            
             sortSelected.classList.add('placed');
             sortSelected.classList.remove('selected');
             sortSelected.style.display = 'none';
         } else {
+            sortHadErrors = true;
             sortSelected.classList.add('wrong');
             sortSelected.classList.remove('selected');
             setTimeout(() => sortSelected.classList.remove('wrong'), 600);
@@ -314,7 +327,7 @@ const ActivitiesEngine = (() => {
 
         // All placed?
         if (sortPlaced >= sortTotal) {
-            addScore(sortCorrect >= sortTotal);
+            addScore(!sortHadErrors);
         }
     }
 
