@@ -1,0 +1,326 @@
+const QUIZZES_DATA = {
+  "modulo1": [
+    {
+      "id": 1,
+      "pregunta": "¿Qué significa SG-SST?",
+      "opciones": [
+        "Sistema de Gestión de Seguridad y Salud en el Trabajo",
+        "Sistema General de Servicios Sociales y Tributarios",
+        "Sistema de Garantía de Seguridad y Salud Total",
+        "Servicio General de Seguridad y Salud del Trabajador"
+      ],
+      "correcta": 0,
+      "explicacion": "El SG-SST es el Sistema de Gestión de Seguridad y Salud en el Trabajo, diseñado para prevenir accidentes y enfermedades laborales."
+    },
+    {
+      "id": 2,
+      "pregunta": "¿A qué ARL están afiliados los colaboradores de la CUN?",
+      "opciones": [
+        "Sura",
+        "Positiva",
+        "Colpatria",
+        "AURORA Seguros de Vida"
+      ],
+      "correcta": 3,
+      "explicacion": "La ARL a la cual están afiliados los colaboradores de la CUN es AURORA Seguros de Vida."
+    },
+    {
+      "id": 3,
+      "pregunta": "¿Cuál es uno de los objetivos de la Política de SST de la CUN?",
+      "opciones": [
+        "Identificar oportunamente cada peligro y valorar los riesgos",
+        "Aumentar la productividad sin importar la seguridad",
+        "Reducir costos operativos",
+        "Eliminar los descansos laborales"
+      ],
+      "correcta": 0,
+      "explicacion": "La Política de SST incluye el compromiso de identificar oportunamente cada peligro y valorar los riesgos."
+    },
+    {
+      "id": 4,
+      "pregunta": "¿Cuál es uno de los objetivos de la Gestión Ambiental?",
+      "opciones": [
+        "Aumentar el consumo de papel",
+        "Ignorar la normativa ambiental",
+        "Usar más plástico en las oficinas",
+        "Prevenir y controlar los impactos ambientales"
+      ],
+      "correcta": 3,
+      "explicacion": "La Gestión Ambiental busca prevenir y controlar los impactos ambientales, entre otros objetivos."
+    },
+    {
+      "id": 5,
+      "pregunta": "¿Qué acción NO es una recomendación de Gestión Ambiental?",
+      "opciones": [
+        "Separar correctamente los residuos",
+        "Ahorrar agua y energía",
+        "Usar más plástico desechable",
+        "Participar en campañas ambientales"
+      ],
+      "correcta": 2,
+      "explicacion": "La Gestión Ambiental recomienda reducir el uso de plástico, no aumentarlo."
+    }
+  ],
+  "modulo2": [
+    {
+      "id": 1,
+      "pregunta": "¿Qué es la Brigada de Emergencias?",
+      "opciones": [
+        "Un grupo de trabajadores organizados y capacitados para prevenir y reaccionar ante emergencias",
+        "Un grupo externo de bomberos",
+        "Un comité de bienestar corporativo",
+        "Una empresa de seguridad privada"
+      ],
+      "correcta": 0,
+      "explicacion": "La Brigada de Emergencias es el grupo de trabajadores organizados, capacitados y dotados para prevenir, controlar y reaccionar ante situaciones de riesgo."
+    },
+    {
+      "id": 2,
+      "pregunta": "¿Cuál es la regla de oro ante una emergencia?",
+      "opciones": [
+        "Correr lo más rápido posible",
+        "Improvisar una ruta de escape",
+        "Esperar a que pase la emergencia",
+        "Seguir siempre las instrucciones de la brigada y el plan de la sede"
+      ],
+      "correcta": 3,
+      "explicacion": "La regla de oro es nunca improvisar rutas y seguir siempre las instrucciones de la brigada y el plan de la sede."
+    },
+    {
+      "id": 3,
+      "pregunta": "¿Cada sede cuenta con?",
+      "opciones": [
+        "El mismo plan de emergencias",
+        "No necesita plan de emergencias",
+        "Un plan de emergencias propio con estrategias de respuesta",
+        "Solo un botiquín de primeros auxilios"
+      ],
+      "correcta": 2,
+      "explicacion": "Cada sede cuenta con un plan de emergencias propio con estrategias de respuesta oportunas."
+    }
+  ],
+  "modulo3": [
+    {
+      "id": 1,
+      "pregunta": "¿Qué es un accidente de trabajo?",
+      "opciones": [
+        "Cualquier evento ocurrido fuera del trabajo",
+        "Una enfermedad desarrollada por exposición prolongada",
+        "Un evento que no causa daño",
+        "Un suceso repentino por causa del trabajo que produce lesión"
+      ],
+      "correcta": 3,
+      "explicacion": "Un accidente de trabajo es todo suceso repentino que sobrevenga por causa o con ocasión del trabajo, y que produzca lesión orgánica, perturbación funcional, invalidez o muerte."
+    },
+    {
+      "id": 2,
+      "pregunta": "¿Qué es un incidente laboral?",
+      "opciones": [
+        "Un evento no planificado que podría haber resultado en accidente pero no causó daños",
+        "Un evento que siempre causa daño",
+        "Una enfermedad profesional",
+        "Un accidente grave"
+      ],
+      "correcta": 0,
+      "explicacion": "Un incidente laboral es un evento no planificado que podría haber resultado en accidente, pero no causó daños. Es una advertencia."
+    },
+    {
+      "id": 3,
+      "pregunta": "¿Cuál es el primer paso para reportar un accidente de trabajo?",
+      "opciones": [
+        "Esperar al final del turno",
+        "Ir a casa y reportar al día siguiente",
+        "Notificar inmediatamente a tu líder o coordinador y al área de SST",
+        "Publicarlo en redes sociales"
+      ],
+      "correcta": 2,
+      "explicacion": "El primer paso es notificar inmediatamente a tu líder o coordinador y al área de SST."
+    },
+    {
+      "id": 4,
+      "pregunta": "¿A qué correo se debe reportar un accidente de trabajo?",
+      "opciones": [
+        "sst@cun.edu.co",
+        "rrhh@cun.edu.co",
+        "gerencia@cun.edu.co",
+        "soporte@cun.edu.co"
+      ],
+      "correcta": 0,
+      "explicacion": "Todo accidente de trabajo se debe reportar al correo sst@cun.edu.co."
+    },
+    {
+      "id": 5,
+      "pregunta": "¿Qué es una enfermedad laboral?",
+      "opciones": [
+        "Una enfermedad común contraída fuera del trabajo",
+        "La contraída como resultado de la exposición a factores de riesgo inherentes a la actividad laboral",
+        "Un accidente repentino en el trabajo",
+        "Una lesión por un solo evento"
+      ],
+      "correcta": 1,
+      "explicacion": "Una enfermedad laboral es la contraída como resultado de la exposición a factores de riesgo inherentes a la actividad laboral o del medio de trabajo."
+    }
+  ],
+  "modulo4": [
+    {
+      "id": 1,
+      "pregunta": "¿Qué es un acto inseguro?",
+      "opciones": [
+        "Una condición del entorno físico",
+        "Un evento natural",
+        "Cualquier acción o comportamiento del trabajador que pueda llevar a un accidente",
+        "Un defecto en la maquinaria"
+      ],
+      "correcta": 2,
+      "explicacion": "Un acto inseguro se refiere a cualquier acción o comportamiento de un trabajador que pueda llevar a un accidente o incidente."
+    },
+    {
+      "id": 2,
+      "pregunta": "¿Cuál es un ejemplo de condición insegura?",
+      "opciones": [
+        "No usar elementos ergonómicos",
+        "Manipular maquinaria sin formación",
+        "No seguir procedimientos de seguridad",
+        "Iluminación insuficiente en áreas de trabajo"
+      ],
+      "correcta": 3,
+      "explicacion": "Una condición insegura es cualquier circunstancia física del entorno, como iluminación insuficiente, superficies resbaladizas o equipos defectuosos."
+    },
+    {
+      "id": 3,
+      "pregunta": "¿Qué es un peligro?",
+      "opciones": [
+        "Fuente, situación o acto con potencial de daño en términos de enfermedad o lesión",
+        "La probabilidad de que ocurra un daño",
+        "El resultado de un accidente",
+        "La severidad de una lesión"
+      ],
+      "correcta": 0,
+      "explicacion": "Según la GTC 45, un peligro es la fuente, situación o acto con potencial de daño en términos de enfermedad o lesión."
+    },
+    {
+      "id": 4,
+      "pregunta": "¿Qué es el riesgo?",
+      "opciones": [
+        "Combinación de la probabilidad de que ocurra un evento peligroso y la severidad de la lesión o enfermedad",
+        "La fuente que puede causar daño",
+        "Un acto inseguro del trabajador",
+        "Una condición insegura"
+      ],
+      "correcta": 0,
+      "explicacion": "El riesgo es la combinación de la probabilidad de que ocurra un evento o exposición peligrosa, y la severidad de lesión o enfermedad que puede causar."
+    },
+    {
+      "id": 5,
+      "pregunta": "¿Cuál es un ejemplo de acto inseguro?",
+      "opciones": [
+        "Piso mojado sin señalización",
+        "No usar los elementos ergonómicos de manera adecuada",
+        "Iluminación insuficiente",
+        "Cables eléctricos expuestos"
+      ],
+      "correcta": 1,
+      "explicacion": "No usar los elementos ergonómicos de manera adecuada es un comportamiento del trabajador, es decir, un acto inseguro."
+    }
+  ],
+  "modulo5": [
+    {
+      "id": 1,
+      "pregunta": "¿Cuál es un ejemplo de peligro biológico?",
+      "opciones": [
+        "Ruido de maquinaria",
+        "Carga mental excesiva",
+        "Cables eléctricos expuestos",
+        "Virus y bacterias"
+      ],
+      "correcta": 3,
+      "explicacion": "Los peligros biológicos incluyen virus, bacterias y otros microorganismos que pueden causar enfermedades respiratorias o tópicas."
+    },
+    {
+      "id": 2,
+      "pregunta": "¿Qué son las pausas activas?",
+      "opciones": [
+        "Periodos de recuperación que siguen a los periodos de tensión generados por el trabajo",
+        "Descansos largos durante la jornada",
+        "Actividades deportivas obligatorias",
+        "Tiempo libre no programado"
+      ],
+      "correcta": 0,
+      "explicacion": "Las pausas activas son periodos de recuperación que siguen a los periodos de tensión de carácter fisiológico y psicológico generados por el trabajo."
+    },
+    {
+      "id": 3,
+      "pregunta": "¿Cuál es la consecuencia posible del peligro biomecánico?",
+      "opciones": [
+        "Hipoacusia",
+        "Lumbalgia o hernias",
+        "Intoxicación",
+        "Electrocución"
+      ],
+      "correcta": 1,
+      "explicacion": "Los peligros biomecánicos, como el levantamiento de cargas desproporcionadas, pueden causar lumbalgia o hernias."
+    },
+    {
+      "id": 4,
+      "pregunta": "¿Qué se debe hacer con los equipos de trabajo?",
+      "opciones": [
+        "Usar cualquier equipo disponible",
+        "Encender máquinas sin orden para verificar su estado",
+        "Solo operar equipos para los que se fue contratado y nunca en máquinas en mantenimiento",
+        "Ignorar las condiciones del equipo"
+      ],
+      "correcta": 2,
+      "explicacion": "Se debe usar la herramienta de forma adecuada, nunca ejecutar labores en máquinas en mantenimiento y realizar labores solo para las cuales se fue contratado."
+    },
+    {
+      "id": 5,
+      "pregunta": "¿Qué tipo de peligro causa principalmente estrés y ansiedad?",
+      "opciones": [
+        "Psicosocial",
+        "Biológico",
+        "Físico",
+        "Químico"
+      ],
+      "correcta": 0,
+      "explicacion": "Los peligros psicosociales, como la carga mental y la jornada laboral, pueden causar estrés y ansiedad."
+    }
+  ],
+  "modulo6": [
+    {
+      "id": 1,
+      "pregunta": "¿Qué es el COPASST?",
+      "opciones": [
+        "Un comité de bienestar social",
+        "Un grupo de emergencias",
+        "Un sindicato laboral",
+        "El organismo encargado de promover y vigilar las normas y reglamentos de SST"
+      ],
+      "correcta": 3,
+      "explicacion": "El COPASST (Comité Paritario de Seguridad y Salud en el Trabajo) es el organismo encargado de promover y vigilar las normas y reglamentos de SST."
+    },
+    {
+      "id": 2,
+      "pregunta": "¿A qué comité se debe acudir en caso de acoso laboral?",
+      "opciones": [
+        "Comité de Convivencia Laboral",
+        "COPASST",
+        "Comité de Equidad y Diversidad",
+        "Recursos Humanos"
+      ],
+      "correcta": 0,
+      "explicacion": "El Comité de Convivencia Laboral se encarga de prevenir el acoso laboral y proteger a los trabajadores frente a riesgos psicosociales."
+    },
+    {
+      "id": 3,
+      "pregunta": "¿Cuál es el correo del Comité de Equidad de Género y Diversidad?",
+      "opciones": [
+        "copasst@cun.edu.co",
+        "generoydiversidad@cun.edu.co",
+        "comiteconvivencialaboral@cun.edu.co",
+        "sst@cun.edu.co"
+      ],
+      "correcta": 1,
+      "explicacion": "El correo de contacto del Comité de Equidad de Género y Diversidad es generoydiversidad@cun.edu.co."
+    }
+  ]
+};

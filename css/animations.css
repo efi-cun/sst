@@ -1,0 +1,163 @@
+/* ========================================
+   Keyframe Animations
+   ======================================== */
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes bounceIn {
+    0% { opacity: 0; transform: scale(0.3); }
+    50% { transform: scale(1.05); }
+    70% { transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+@keyframes tada {
+    0% { transform: scale(1) rotate(0); }
+    10%, 20% { transform: scale(0.9) rotate(-3deg); }
+    30%, 50%, 70%, 90% { transform: scale(1.1) rotate(3deg); }
+    40%, 60%, 80% { transform: scale(1.1) rotate(-3deg); }
+    100% { transform: scale(1) rotate(0); }
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+@keyframes rotateIn {
+    from { opacity: 0; transform: rotate(-200deg) scale(0.5); }
+    to { opacity: 1; transform: rotate(0) scale(1); }
+}
+
+@keyframes flipInX {
+    from { opacity: 0; transform: perspective(400px) rotate3d(1, 0, 0, 90deg); }
+    to { opacity: 1; transform: perspective(400px) rotate3d(1, 0, 0, 0); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes glowPulse {
+    0%, 100% { box-shadow: 0 0 5px rgba(46, 204, 113, 0.4); border-color: rgba(46, 204, 113, 0.2); }
+    50% { box-shadow: 0 0 20px rgba(46, 204, 113, 0.9), 0 0 30px rgba(46, 204, 113, 0.6); border-color: rgba(46, 204, 113, 1); }
+}
+
+
+/* ========================================
+   Animation Utility Classes
+   ======================================== */
+.anim-fade-in { animation: fadeIn 0.5s ease-out both; }
+.anim-fade-in-up { animation: fadeInUp 0.5s ease-out both; }
+.anim-fade-in-down { animation: fadeInDown 0.5s ease-out both; }
+.anim-slide-up { animation: slideUp 0.5s ease-out both; }
+.anim-slide-left { animation: slideInLeft 0.5s ease-out both; }
+.anim-slide-right { animation: slideInRight 0.5s ease-out both; }
+.anim-bounce { animation: bounceIn 0.6s ease-out both; }
+.anim-scale { animation: scaleIn 0.4s ease-out both; }
+.anim-tada { animation: tada 0.8s ease-out both; }
+.anim-shake { animation: shake 0.5s ease-out both; }
+.anim-rotate { animation: rotateIn 0.6s ease-out both; }
+.anim-flip { animation: flipInX 0.6s ease-out both; }
+.anim-pulse { animation: pulse 1.5s ease-in-out infinite; }
+.anim-glow { animation: glowPulse 2s infinite; border: 2px solid transparent; }
+
+/* Stagger delays */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+.delay-6 { animation-delay: 0.6s; }
+
+/* ========================================
+   Scroll-triggered Animations
+   ======================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ========================================
+   Interactive Hover Effects
+   ======================================== */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.hover-glow {
+    transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 20px rgba(46,134,171,0.3);
+}
+
+/* ========================================
+   Shimmer / Loading Effect
+   ======================================== */
+.shimmer {
+    background: linear-gradient(90deg, var(--border) 25%, var(--bg) 50%, var(--border) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
