@@ -141,6 +141,19 @@ const AuthManager = (() => {
                     console.error('Error al auto-sincronizar usuario local con Supabase:', err);
                 }
             }
+
+            // Sincronización proactiva con Google Sheets
+            if (typeof GoogleSheetsSync !== 'undefined' && GoogleSheetsSync.isConfigured()) {
+                GoogleSheetsSync.registerUser(user.cedula, user.nombre, user.email, password)
+                    .then(res => {
+                        console.log('✓ Registro local sincronizado con Google Sheets:', res);
+                        const localProgress = ProgressManager.getUserProgress(user.cedula);
+                        if (localProgress) {
+                            GoogleSheetsSync.saveProgress(user.cedula, localProgress);
+                        }
+                    })
+                    .catch(err => console.error('Error al sincronizar local con Google Sheets:', err));
+            }
         }
 
         const session = {
