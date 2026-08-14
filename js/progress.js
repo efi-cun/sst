@@ -63,6 +63,11 @@ const ProgressManager = (() => {
             await SupabaseDB.saveProgress(userId, progress);
         }
 
+        // Sincronizar con Google Sheets
+        if (typeof GoogleSheetsSync !== 'undefined' && GoogleSheetsSync.isConfigured()) {
+            GoogleSheetsSync.saveProgress(userId, progress);
+        }
+
         return progress;
     }
 
