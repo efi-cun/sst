@@ -83,7 +83,7 @@ const Modulo1 = {
                 </div>
 
                 <div class="info-box success" style="align-items: center;">
-                    <img src="assets/img/mascot_engineer.jpg" alt="Mascota" style="width: 60px; height: 60px; object-fit: cover; border-radius: 50%; margin-right: 1rem; border: 2px solid #2ECC71;">
+                    <img src="assets/img/mascot_original.png" alt="Mascota" style="width: 60px; height: 60px; object-fit: cover; border-radius: 50%; margin-right: 1rem; border: 2px solid #2ECC71;">
                     <div class="info-box-content">
                         <strong>Consejo CUNista:</strong> Nuestra ARL es <strong>AURORA Seguros de Vida</strong>. Es fundamental conocer a qué Administradora de Riesgos Laborales perteneces.
                     </div>
@@ -262,6 +262,13 @@ const Modulo1 = {
                             <text x="550" y="235" text-anchor="middle" fill="white" font-size="11" font-weight="600" font-family="Inter">📢 Campañas</text>
                         </g>
                     </svg>
+                </div>
+
+                <div class="info-box success" style="align-items: center; margin-bottom: 1.5rem;">
+                    <img src="assets/img/mascot_saltando.png" alt="Mascota Gestión Ambiental" style="width: 60px; height: 60px; object-fit: cover; border-radius: 50%; margin-right: 1rem; border: 2px solid #2ECC71;">
+                    <div class="info-box-content">
+                        <strong>Cultura Sostenible CUNista:</strong> Cuidar del medio ambiente es un compromiso de todos. Ayuda a ahorrar agua, energía y papel en cada una de nuestras sedes.
+                    </div>
                 </div>
 
                 <div class="concept-card success">

@@ -174,8 +174,8 @@ const Modulo6 = {
                     </ul>
                 </div>
 
-                <div class="info-box success" style="margin-bottom: 1.5rem;">
-                    <span class="info-box-icon">📧</span>
+                <div class="info-box success" style="margin-bottom: 1.5rem; align-items: center;">
+                    <img src="assets/img/mascot_committee.jpg" alt="Mascota Comité" style="width: 60px; height: 60px; object-fit: cover; border-radius: 50%; margin-right: 1rem; border: 2px solid #2ECC71;">
                     <div class="info-box-content">
                         <strong>Correo oficial de contacto:</strong> <a href="mailto:copasst@cun.edu.co" style="color: var(--primary); font-weight: bold;">copasst@cun.edu.co</a>
                     </div>
@@ -211,15 +211,15 @@ const Modulo6 = {
                     </ul>
                 </div>
 
-                <div class="info-box info" style="margin-bottom: 1.5rem; border-left-color: var(--secondary);">
-                    <span class="info-box-icon">🔒</span>
+                <div class="info-box info" style="margin-bottom: 1.5rem; border-left-color: var(--secondary); align-items: center;">
+                    <img src="assets/img/mascot_committee.jpg" alt="Mascota Comité" style="width: 60px; height: 60px; object-fit: cover; border-radius: 50%; margin-right: 1rem; border: 2px solid var(--secondary);">
                     <div class="info-box-content">
                         <strong>Confidencialidad Legal:</strong> Por ley, todos los datos, testimonios y actas gestionados por el CCL son de carácter estrictamente confidencial.
                     </div>
                 </div>
 
-                <div class="info-box success" style="margin-bottom: 1.5rem;">
-                    <span class="info-box-icon">📧</span>
+                <div class="info-box success" style="margin-bottom: 1.5rem; align-items: center;">
+                    <img src="assets/img/mascot_committee.jpg" alt="Mascota Comité" style="width: 60px; height: 60px; object-fit: cover; border-radius: 50%; margin-right: 1rem; border: 2px solid #2ECC71;">
                     <div class="info-box-content">
                         <strong>Correo oficial de contacto:</strong> <a href="mailto:comiteconvivencialaboral@cun.edu.co" style="color: var(--primary); font-weight: bold;">comiteconvivencialaboral@cun.edu.co</a>
                     </div>
@@ -255,8 +255,8 @@ const Modulo6 = {
                     </ul>
                 </div>
 
-                <div class="info-box success">
-                    <span class="info-box-icon">📧</span>
+                <div class="info-box success" style="align-items: center;">
+                    <img src="assets/img/mascot_committee.jpg" alt="Mascota Comité" style="width: 60px; height: 60px; object-fit: cover; border-radius: 50%; margin-right: 1rem; border: 2px solid #2ECC71;">
                     <div class="info-box-content">
                         <strong>Correo oficial de contacto:</strong> <a href="mailto:generoydiversidad@cun.edu.co" style="color: var(--primary); font-weight: bold;">generoydiversidad@cun.edu.co</a>
                     </div>

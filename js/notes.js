@@ -128,6 +128,8 @@ const NotesManager = (() => {
             return;
         }
 
+        let syncedNote = null;
+
         if (editingNoteId) {
             // Update existing
             const noteIndex = notes.findIndex(n => n.id === editingNoteId);
@@ -135,6 +137,7 @@ const NotesManager = (() => {
                 notes[noteIndex].modulo = moduleVal;
                 notes[noteIndex].texto = noteText;
                 notes[noteIndex].fecha = new Date().toLocaleString('es-CO');
+                syncedNote = notes[noteIndex];
             }
             editingNoteId = null;
             document.getElementById('btn-save-note').textContent = 'Guardar Nota';
@@ -147,9 +150,16 @@ const NotesManager = (() => {
                 fecha: new Date().toLocaleString('es-CO')
             };
             notes.unshift(newNote); // Put newest notes at the top
+            syncedNote = newNote;
         }
 
         saveNotesToStorage();
+
+        // Sync with Supabase DB
+        if (syncedNote && typeof SupabaseDB !== 'undefined' && SupabaseDB.isConnected()) {
+            SupabaseDB.saveNote(user.cedula || user.userId, syncedNote);
+        }
+
         textEl.value = '';
         renderNotes();
     }
@@ -158,6 +168,12 @@ const NotesManager = (() => {
         if (confirm('¿Estás seguro de que deseas eliminar esta nota?')) {
             notes = notes.filter(n => n.id !== id);
             saveNotesToStorage();
+
+            // Sync delete with Supabase DB
+            if (typeof SupabaseDB !== 'undefined' && SupabaseDB.isConnected()) {
+                SupabaseDB.deleteNote(id);
+            }
+
             renderNotes();
             if (editingNoteId === id) {
                 editingNoteId = null;

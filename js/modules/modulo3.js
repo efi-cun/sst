@@ -24,8 +24,8 @@ const Modulo3 = {
                     <p>En esta sección abordaremos cómo diferenciar un accidente de trabajo, un incidente laboral y una enfermedad laboral, además de conocer las obligaciones y plazos legales para su reporte e investigación bajo la normativa colombiana.</p>
                 </div>
 
-                <div class="info-box success">
-                    <span class="info-box-icon">🎯</span>
+                <div class="info-box success" style="align-items: center;">
+                    <img src="assets/img/mascot_investigator.jpg" alt="Mascota Investigador" style="width: 60px; height: 60px; object-fit: cover; border-radius: 50%; margin-right: 1rem; border: 2px solid #2ECC71;">
                     <div class="info-box-content">
                         <strong>Prevención activa:</strong> Conocer los riesgos y saber cómo actuar en caso de un evento es el primer paso para proteger tu vida y la de tus compañeros.
                     </div>

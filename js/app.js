@@ -12,14 +12,38 @@ const App = (() => {
         // Load saved theme
         initTheme();
 
+        // Animate loading percent dynamically (0% to 100%)
+        const percentEl = document.getElementById('load-percent');
+        if (percentEl) {
+            let current = 0;
+            const duration = 1400; // slightly shorter than 1500ms timeout
+            const stepTime = 100;
+            const steps = duration / stepTime;
+            const increment = 100 / steps;
+
+            const interval = setInterval(() => {
+                current += increment + (Math.random() * 8 - 4); // add slight randomness
+                if (current >= 100) {
+                    current = 100;
+                    clearInterval(interval);
+                }
+                percentEl.textContent = `${Math.round(current)}%`;
+            }, stepTime);
+        }
+
         setTimeout(() => {
             const loadingScreen = document.getElementById('loading-screen');
-            loadingScreen.classList.add('fade-out');
-            document.getElementById('app').classList.remove('hidden');
-
-            setTimeout(() => loadingScreen.remove(), 500);
+            if (loadingScreen) {
+                loadingScreen.classList.add('fade-out');
+                document.getElementById('app').classList.remove('hidden');
+                setTimeout(() => loadingScreen.remove(), 500);
+            }
 
             if (AuthManager.isLoggedIn()) {
+                const user = AuthManager.getCurrentUser();
+                if (user) {
+                    ProgressManager.startTimeTracking(user.userId || user.cedula);
+                }
                 showDashboard();
             } else {
                 showLanding();
@@ -105,30 +129,54 @@ const App = (() => {
     }
 
     // ============ AUTH HANDLERS ============
-    function handleLogin() {
+    async function handleLogin() {
         const email = document.getElementById('login-email').value.trim();
         const password = document.getElementById('login-password').value;
 
-        const result = AuthManager.login(email, password);
-        if (result.success) {
-            showDashboard();
-        } else {
-            showError('login-error', result.message);
+        const btnLogin = document.getElementById('btn-login');
+        const originalText = btnLogin.textContent;
+        btnLogin.textContent = 'Ingresando...';
+        btnLogin.disabled = true;
+
+        try {
+            const result = await AuthManager.login(email, password);
+            if (result.success) {
+                showDashboard();
+            } else {
+                showError('login-error', result.message);
+            }
+        } catch (e) {
+            showError('login-error', 'Error al conectar con la base de datos');
+        } finally {
+            btnLogin.textContent = originalText;
+            btnLogin.disabled = false;
         }
     }
 
-    function handleRegister() {
+    async function handleRegister() {
         const name = document.getElementById('reg-name').value.trim();
         const cedula = document.getElementById('reg-id').value.trim();
         const email = document.getElementById('reg-email').value.trim();
         const password = document.getElementById('reg-password').value;
 
-        const result = AuthManager.register(name, cedula, email, password);
-        if (result.success) {
-            const loginResult = AuthManager.login(email, password);
-            if (loginResult.success) showDashboard();
-        } else {
-            showError('register-error', result.message);
+        const btnRegister = document.getElementById('btn-register');
+        const originalText = btnRegister.textContent;
+        btnRegister.textContent = 'Registrando...';
+        btnRegister.disabled = true;
+
+        try {
+            const result = await AuthManager.register(name, cedula, email, password);
+            if (result.success) {
+                const loginResult = await AuthManager.login(email, password);
+                if (loginResult.success) showDashboard();
+            } else {
+                showError('register-error', result.message);
+            }
+        } catch (e) {
+            showError('register-error', 'Error al registrar el usuario');
+        } finally {
+            btnRegister.textContent = originalText;
+            btnRegister.disabled = false;
         }
     }
 
@@ -175,6 +223,23 @@ const App = (() => {
 
         const completed = Object.values(p.modulos).filter(m => m.completado).length;
         document.getElementById('modules-completed').textContent = `${completed} de 6 módulos completados`;
+
+        // Game Theme Spaceship and Runway Update
+        const spaceship = document.getElementById('spaceship-player');
+        const runway = document.getElementById('space-runway');
+        if (spaceship) {
+            // Position the spaceship
+            const position = p.progresoGeneral;
+            spaceship.style.left = `${position}%`;
+            
+            // Reset class names to base speed and runway speed
+            spaceship.className = 'spaceship-player';
+            if (runway) runway.className = 'space-runway';
+
+            // Add new speed class based on completed modules count (0 to 6)
+            spaceship.classList.add(`speed-${completed}`);
+            if (runway) runway.classList.add(`runway-speed-${completed}`);
+        }
     }
 
     function updateModuleCards() {
@@ -378,7 +443,7 @@ const App = (() => {
         }
     }
 
-    function showQuizResult() {
+    async function showQuizResult() {
         const results = ActivitiesEngine.getResults();
         showView('quiz-result');
 
@@ -407,7 +472,7 @@ const App = (() => {
         const dashBtn = document.getElementById('btn-go-dashboard');
         if (results.passed) {
             const user = AuthManager.getCurrentUser();
-            ProgressManager.completeModule(user.cedula || user.userId, currentModule, results.percent);
+            await ProgressManager.completeModule(user.cedula || user.userId, currentModule, results.percent);
             dashBtn.classList.remove('hidden');
 
             if (results.percent === 100) {
@@ -639,6 +704,24 @@ const App = (() => {
             btn.innerHTML = btnText;
             btn.onclick = () => window.open(url, '_blank');
             textEl.appendChild(btn);
+        }
+
+        // Dynamically change mascot in the Info Modal based on current module
+        const modalImg = document.querySelector('#modal-info img');
+        if (modalImg) {
+            if (currentModule === 2) {
+                modalImg.src = 'assets/img/mascot_firefighter.jpg';
+            } else if (currentModule === 3) {
+                modalImg.src = 'assets/img/mascot_investigator.jpg';
+            } else if (currentModule === 4) {
+                modalImg.src = 'assets/img/mascot_warning.jpg';
+            } else if (currentModule === 5) {
+                modalImg.src = 'assets/img/mascot_stretching.jpg';
+            } else if (currentModule === 6) {
+                modalImg.src = 'assets/img/mascot_committee.jpg';
+            } else {
+                modalImg.src = 'assets/img/mascot_original.png';
+            }
         }
         
         toggleModal('modal-info', true);

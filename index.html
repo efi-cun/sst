@@ -11,20 +11,26 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/modules.css">
+    <link rel="stylesheet" href="css/game-theme.css">
 </head>
 <body>
     <!-- ============ LOADING SCREEN ============ -->
-    <div id="loading-screen" class="loading-screen">
-        <div class="loading-content">
-            <div class="loading-logo">
-                <svg viewBox="0 0 80 80" class="shield-icon">
-                    <path d="M40 5 L70 20 L70 45 C70 62 55 75 40 78 C25 75 10 62 10 45 L10 20 Z" fill="none" stroke="var(--primary)" stroke-width="3"/>
-                    <path d="M30 42 L37 49 L52 34" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+    <div id="loading-screen" class="loading-screen game-loading">
+        <div class="loading-container-grid">
+            <div class="loading-text-side">
+                <h1 class="pixel-loading-title">CARGANDO</h1>
+                <p class="pixel-loading-subtitle">una nueva experiencia para tu bienestar...</p>
+                <div class="pixel-progress-container">
+                    <div class="pixel-progress-val" id="load-percent">0%</div>
+                    <div class="pixel-loading-bar">
+                        <div class="pixel-loading-bar-fill"></div>
+                    </div>
+                    <div class="pixel-loading-status">iniciando experiencia</div>
+                </div>
             </div>
-            <h2>Curso de Reinducción SST</h2>
-            <p>Cargando experiencia de aprendizaje...</p>
-            <div class="loading-bar"><div class="loading-bar-fill"></div></div>
+            <div class="loading-mascot-side">
+                <img src="assets/img/mascot_saltando.png" alt="Mascota Saltando" class="loading-mascot-img">
+            </div>
         </div>
     </div>
 
@@ -150,17 +156,25 @@
             </header>
 
             <!-- Progress Bar -->
-            <div class="progress-section">
+            <div class="progress-section game-hud">
                 <div class="progress-header">
-                    <span>Progreso General</span>
-                    <span id="progress-percent">0%</span>
+                    <span class="hud-label">🚀 Progreso de la Misión</span>
+                    <span id="progress-percent" class="hud-value">0%</span>
                 </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+                <div class="space-runway-container">
+                    <div class="space-runway" id="space-runway">
+                        <div class="space-stars"></div>
+                        <div class="progress-fill-glow" id="progress-fill" style="width: 0%"></div>
+                        <!-- Spaceship floating on the progress line -->
+                        <div class="spaceship-player speed-0" id="spaceship-player" style="left: 0%;">
+                            <img src="assets/img/mascot_spaceship.jpg" alt="Nave CUN" class="spaceship-img">
+                            <span class="engine-flame"></span>
+                        </div>
+                    </div>
                 </div>
                 <div class="progress-stats">
-                    <span id="modules-completed">0 de 6 módulos completados</span>
-                    <span id="date-start"></span>
+                    <span id="modules-completed" class="hud-sub">0 de 6 módulos completados</span>
+                    <span id="date-start" class="hud-sub"></span>
                 </div>
             </div>
 
@@ -171,7 +185,15 @@
                         <span class="module-number">01</span>
                         <span class="module-status" id="status-1">🔒</span>
                     </div>
-                    <div class="module-icon">📋</div>
+                    <div class="module-icon">
+                        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+                            <path d="M24 4h16v4H24zM16 8h8v4h-8zM40 8h8v4h-8zM8 16h8v8H8zM48 16h8v8h-8zM4 24h4v16H4zM56 24h4v16h-4zM8 40h8v8H8zM48 40h8v8h-8zM16 48h8v4h-8zM40 48h8v4h-8zM24 52h16v4H24z" fill="#333"/>
+                            <path d="M24 8h16v4H24zM16 12h8v4h-8zM40 12h8v4h-8zM12 16h4v8h-4zM48 16h4v8h-4zM8 24h4v16H8zM52 24h4v16h-4zM12 40h4v8h-4zM48 40h4v8h-4zM16 48h8v4h-8zM40 48h8v4h-8zM24 52h16v4H24z" fill="#f5b041"/>
+                            <path d="M24 12h16v28H24zM16 16h8v24h-8zM40 16h8v24h-8zM12 24h4v16h-4zM48 24h4v16h-4z" fill="#fcf3cf"/>
+                            <path d="M24 20h16v4H24zM20 24h24v12H20zM24 36h16v4H24zM28 40h8v4H28zM30 44h4v4h-4z" fill="#e67e22"/>
+                            <path d="M30 28h4v12h-4zM26 32h12v4H26z" fill="#fff"/>
+                        </svg>
+                    </div>
                     <h3>Fundamentos de SST</h3>
                     <p>Política y Gestión Ambiental</p>
                     <div class="module-meta">
@@ -186,7 +208,15 @@
                         <span class="module-number">02</span>
                         <span class="module-status" id="status-2">🔒</span>
                     </div>
-                    <div class="module-icon">🚨</div>
+                    <div class="module-icon">
+                        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+                            <path d="M24 4h16v4H24zM16 8h8v4h-8zM40 8h8v4h-8zM8 16h8v8H8zM48 16h8v8h-8zM4 24h4v16H4zM56 24h4v16h-4zM8 40h8v8H8zM48 40h8v8h-8zM16 48h8v4h-8zM40 48h8v4h-8zM24 52h16v4H24z" fill="#333"/>
+                            <path d="M24 8h16v4H24zM16 12h8v4h-8zM40 12h8v4h-8zM12 16h4v8h-4zM48 16h4v8h-4zM8 24h4v16H8zM52 24h4v16h-4zM12 40h4v8h-4zM48 40h4v8h-4zM16 48h8v4h-8zM40 48h8v4h-8zM24 52h16v4H24z" fill="#ec407a"/>
+                            <path d="M24 12h16v28H24zM16 16h8v24h-8zM40 16h8v24h-8zM12 24h4v16h-4zM48 24h4v16h-4z" fill="#f8bbd0"/>
+                            <path d="M36 16h-8v8h-4v8h8v-4h4v12l8-12h-4v-4h4v-8h-8z" fill="#d81b60"/>
+                            <path d="M32 20h4v4h-4zM28 24h4v4h-4zM32 28h4v4h-4zM36 32h4v4h-4z" fill="#fff"/>
+                        </svg>
+                    </div>
                     <h3>Planes de Emergencia</h3>
                     <p>Brigada y rutas de evacuación</p>
                     <div class="module-meta">
@@ -201,7 +231,15 @@
                         <span class="module-number">03</span>
                         <span class="module-status" id="status-3">🔒</span>
                     </div>
-                    <div class="module-icon">⚡</div>
+                    <div class="module-icon">
+                        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+                            <path d="M24 4h16v4H24zM16 8h8v4h-8zM40 8h8v4h-8zM8 16h8v8H8zM48 16h8v8h-8zM4 24h4v16H4zM56 24h4v16h-4zM8 40h8v8H8zM48 40h8v8h-8zM16 48h8v4h-8zM40 48h8v4h-8zM24 52h16v4H24z" fill="#333"/>
+                            <path d="M24 8h16v4H24zM16 12h8v4h-8zM40 12h8v4h-8zM12 16h4v8h-4zM48 16h4v8h-4zM8 24h4v16H8zM52 24h4v16h-4zM12 40h4v8h-4zM48 40h4v8h-4zM16 48h8v4h-8zM40 48h8v4h-8zM24 52h16v4H24z" fill="#d35400"/>
+                            <path d="M24 12h16v28H24zM16 16h8v24h-8zM40 16h8v24h-8zM12 24h4v16h-4zM48 24h4v16h-4z" fill="#fdebd0"/>
+                            <path d="M24 20h16v4H24zM20 24h24v12H20zM24 36h16v4H24zM28 40h8v4H28zM30 44h4v4h-4z" fill="#fff" stroke="#333" stroke-width="1"/>
+                            <path d="M30 24h4v12h-4zM26 28h12v4H26z" fill="#e74c3c"/>
+                        </svg>
+                    </div>
                     <h3>Accidente, Incidente y Enfermedad</h3>
                     <p>Clasificación y reporte</p>
                     <div class="module-meta">
@@ -216,7 +254,15 @@
                         <span class="module-number">04</span>
                         <span class="module-status" id="status-4">🔒</span>
                     </div>
-                    <div class="module-icon">⚠️</div>
+                    <div class="module-icon">
+                        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+                            <path d="M24 4h16v4H24zM16 8h8v4h-8zM40 8h8v4h-8zM8 16h8v8H8zM48 16h8v8h-8zM4 24h4v16H4zM56 24h4v16h-4zM8 40h8v8H8zM48 40h8v8h-8zM16 48h8v4h-8zM40 48h8v4h-8zM24 52h16v4H24z" fill="#333"/>
+                            <path d="M24 8h16v4H24zM16 12h8v4h-8zM40 12h8v4h-8zM12 16h4v8h-4zM48 16h4v8h-4zM8 24h4v16H8zM52 24h4v16h-4zM12 40h4v8h-4zM48 40h4v8h-4zM16 48h8v4h-8zM40 48h8v4h-8zM24 52h16v4H24z" fill="#8e44ad"/>
+                            <path d="M24 12h16v28H24zM16 16h8v24h-8zM40 16h8v24h-8zM12 24h4v16h-4zM48 24h4v16h-4z" fill="#ebdef0"/>
+                            <path d="M28 20h8v4h-8zM24 24h16v12H24zM26 36h12v4H26zM28 16h8v4h-8z" fill="#9b59b6"/>
+                            <path d="M26 24h4v4h-4zM34 24h4v4h-4zM30 28h4v4h-4zM28 32h8v4h-8z" fill="#fff" opacity="0.6"/>
+                        </svg>
+                    </div>
                     <h3>Actos y Condiciones Inseguras</h3>
                     <p>Peligro y Riesgo</p>
                     <div class="module-meta">
@@ -231,7 +277,15 @@
                         <span class="module-number">05</span>
                         <span class="module-status" id="status-5">🔒</span>
                     </div>
-                    <div class="module-icon">🛡️</div>
+                    <div class="module-icon">
+                        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+                            <path d="M24 4h16v4H24zM16 8h8v4h-8zM40 8h8v4h-8zM8 16h8v8H8zM48 16h8v8h-8zM4 24h4v16H4zM56 24h4v16h-4zM8 40h8v8H8zM48 40h8v8h-8zM16 48h8v4h-8zM40 48h8v4h-8zM24 52h16v4H24z" fill="#333"/>
+                            <path d="M24 8h16v4H24zM16 12h8v4h-8zM40 12h8v4h-8zM12 16h4v8h-4zM48 16h4v8h-4zM8 24h4v16H8zM52 24h4v16h-4zM12 40h4v8h-4zM48 40h4v8h-4zM16 48h8v4h-8zM40 48h8v4h-8zM24 52h16v4H24z" fill="#27ae60"/>
+                            <path d="M24 12h16v28H24zM16 16h8v24h-8zM40 16h8v24h-8zM12 24h4v16h-4zM48 24h4v16h-4z" fill="#e8f8f5"/>
+                            <path d="M20 28h16v4H20zM24 24h8v4h-8zM20 32h24v4H20zM24 36h20v4H24z" fill="#2ecc71"/>
+                            <path d="M40 24h4v8h-4zM36 20h4v4h-4z" fill="#fff"/>
+                        </svg>
+                    </div>
                     <h3>Peligros, Autocuidado y Equipos</h3>
                     <p>7 tipos de peligros y prevención</p>
                     <div class="module-meta">
@@ -246,7 +300,15 @@
                         <span class="module-number">06</span>
                         <span class="module-status" id="status-6">🔒</span>
                     </div>
-                    <div class="module-icon">👥</div>
+                    <div class="module-icon">
+                        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+                            <path d="M24 4h16v4H24zM16 8h8v4h-8zM40 8h8v4h-8zM8 16h8v8H8zM48 16h8v8h-8zM4 24h4v16H4zM56 24h4v16h-4zM8 40h8v8H8zM48 40h8v8h-8zM16 48h8v4h-8zM40 48h8v4h-8zM24 52h16v4H24z" fill="#333"/>
+                            <path d="M24 8h16v4H24zM16 12h8v4h-8zM40 12h8v4h-8zM12 16h4v8h-4zM48 16h4v8h-4zM8 24h4v16H8zM52 24h4v16h-4zM12 40h4v8h-4zM48 40h4v8h-4zM16 48h8v4h-8zM40 48h8v4h-8zM24 52h16v4H24z" fill="#2980b9"/>
+                            <path d="M24 12h16v28H24zM16 16h8v24h-8zM40 16h8v24h-8zM12 24h4v16h-4zM48 24h4v16h-4z" fill="#ebf5fb"/>
+                            <path d="M30 16h4v4h-4zM28 20h8v4h-8zM26 24h12v12H26zM28 36h8v4h-8z" fill="#3498db"/>
+                            <path d="M30 24h2v8h-2z" fill="#fff" opacity="0.6"/>
+                        </svg>
+                    </div>
                     <h3>Comités de SST</h3>
                     <p>COPASST, Convivencia y Equidad</p>
                     <div class="module-meta">
@@ -459,7 +521,7 @@
                     <button class="modal-close" id="close-info-modal">✕</button>
                 </div>
                 <div class="modal-body" style="display:flex; gap: 1rem; align-items: center;">
-                    <img src="assets/img/mascot_engineer.jpg" alt="Mascota SST" style="width: 150px; border-radius: 10px;">
+                    <img src="assets/img/mascot_original.png" alt="Mascota SST" style="width: 150px; border-radius: 10px;">
                     <p id="modal-info-text" style="flex: 1; font-size: 1.1rem; line-height: 1.5;"></p>
                 </div>
             </div>
@@ -516,6 +578,12 @@
 
     <!-- Scripts -->
     <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+    
+    <!-- Supabase Integración -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/supabase-db.js"></script>
+
     <script src="js/progress.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/data_activities.js"></script>

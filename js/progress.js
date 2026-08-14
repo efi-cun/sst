@@ -22,9 +22,15 @@ const ProgressManager = (() => {
         return all[userId] || null;
     }
 
-    function initUserProgress(userId, name, email) {
+    async function initUserProgress(userId, name, email) {
         const all = getAll();
-        if (all[userId]) return all[userId];
+        if (all[userId]) {
+            // Sync with Supabase on reload/re-init if connected
+            if (typeof SupabaseDB !== 'undefined' && SupabaseDB.isConnected()) {
+                await SupabaseDB.saveProgress(userId, all[userId]);
+            }
+            return all[userId];
+        }
 
         const progress = {
             userId,
@@ -33,6 +39,8 @@ const ProgressManager = (() => {
             fechaInicio: new Date().toISOString().split('T')[0],
             fechaFin: null,
             progresoGeneral: 0,
+            tiempoTotalSegundos: 0,
+            cursoCompletado: false,
             modulos: {
                 modulo1: { completado: false, puntaje: 0, fechaCompletado: null },
                 modulo2: { completado: false, puntaje: 0, fechaCompletado: null },
@@ -46,10 +54,15 @@ const ProgressManager = (() => {
 
         all[userId] = progress;
         save(all);
+
+        if (typeof SupabaseDB !== 'undefined' && SupabaseDB.isConnected()) {
+            await SupabaseDB.saveProgress(userId, progress);
+        }
+
         return progress;
     }
 
-    function completeModule(userId, moduleNum, score) {
+    async function completeModule(userId, moduleNum, score) {
         const all = getAll();
         if (!all[userId]) return null;
 
@@ -65,9 +78,15 @@ const ProgressManager = (() => {
 
         if (completed === 6) {
             all[userId].fechaFin = new Date().toISOString().split('T')[0];
+            all[userId].cursoCompletado = true;
         }
 
         save(all);
+
+        if (typeof SupabaseDB !== 'undefined' && SupabaseDB.isConnected()) {
+            await SupabaseDB.saveProgress(userId, all[userId]);
+        }
+
         return all[userId];
     }
 
@@ -93,6 +112,40 @@ const ProgressManager = (() => {
         return progress.progresoGeneral === 100;
     }
 
+    function saveUserProgressDirectly(userId, progress) {
+        const all = getAll();
+        all[userId] = progress;
+        save(all);
+    }
+
+    let timeTrackingInterval = null;
+
+    function startTimeTracking(userId) {
+        if (timeTrackingInterval) clearInterval(timeTrackingInterval);
+        
+        // Track time and sync to Supabase every 10 seconds
+        timeTrackingInterval = setInterval(async () => {
+            const all = getAll();
+            if (all[userId]) {
+                all[userId].tiempoTotalSegundos = (all[userId].tiempoTotalSegundos || 0) + 10;
+                save(all);
+
+                if (typeof SupabaseDB !== 'undefined' && SupabaseDB.isConnected()) {
+                    await SupabaseDB.updateProgressFields(userId, {
+                        tiempo_total_segundos: all[userId].tiempoTotalSegundos
+                    });
+                }
+            }
+        }, 10000);
+    }
+
+    function stopTimeTracking() {
+        if (timeTrackingInterval) {
+            clearInterval(timeTrackingInterval);
+            timeTrackingInterval = null;
+        }
+    }
+
     return {
         getAll,
         getUserProgress,
@@ -100,6 +153,9 @@ const ProgressManager = (() => {
         completeModule,
         getModuleStatus,
         isModuleUnlocked,
-        isCourseComplete
+        isCourseComplete,
+        saveUserProgressDirectly,
+        startTimeTracking,
+        stopTimeTracking
     };
 })();

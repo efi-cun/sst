@@ -47,8 +47,8 @@ const Modulo5 = {
                 </div>
                 <p class="video-caption">📹 El Nuevo Enfoque en Seguridad y Salud en el Trabajo</p>
 
-                <div class="info-box success" style="margin-bottom: 1.5rem;">
-                    <span class="info-box-icon">💡</span>
+                <div class="info-box success" style="margin-bottom: 1.5rem; align-items: center;">
+                    <img src="assets/img/mascot_stretching.jpg" alt="Mascota Bienestar" style="width: 60px; height: 60px; object-fit: cover; border-radius: 50%; margin-right: 1rem; border: 2px solid #2ECC71;">
                     <div class="info-box-content">
                         <strong>Participación Activa:</strong> La prevención moderna no depende solo de la organización; depende de la reportabilidad oportuna y de la actitud consciente de cada colaborador.
                     </div>
@@ -293,8 +293,8 @@ const Modulo5 = {
                     <p>Factores psicosociales desfavorables como la sobrecarga de tareas y la comunicación deficiente pueden generar altos niveles de <strong>estrés laboral, ansiedad e insomnio</strong>. Es importante equilibrar las jornadas y utilizar los canales de comunicación asertiva del equipo.</p>
                 </div>
 
-                <div class="info-box success" style="margin-bottom: 1.5rem;">
-                    <span class="info-box-icon">🤝</span>
+                <div class="info-box success" style="margin-bottom: 1.5rem; align-items: center;">
+                    <img src="assets/img/mascot_stretching.jpg" alt="Mascota Bienestar" style="width: 60px; height: 60px; object-fit: cover; border-radius: 50%; margin-right: 1rem; border: 2px solid #2ECC71;">
                     <div class="info-box-content">
                         <strong>Comité de Convivencia Laboral:</strong> Recuerda que la CUN cuenta con un comité especial para mediar en conflictos y prevenir el acoso. Puedes contactarlos en <strong>comiteconvivencialaboral@cun.edu.co</strong>.
                     </div>

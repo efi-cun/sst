@@ -67,8 +67,8 @@ const Modulo2 = {
                     <p>Cada sede de la CUN cuenta con un <strong>plan de emergencias</strong> propio, diseñado con estrategias de respuesta oportunas para atender de manera inmediata cualquier eventualidad.</p>
                 </div>
 
-                <div class="info-box danger">
-                    <span class="info-box-icon">🔴</span>
+                <div class="info-box danger" style="align-items: center;">
+                    <img src="assets/img/mascot_firefighter.jpg" alt="Mascota Bombero" style="width: 60px; height: 60px; object-fit: cover; border-radius: 50%; margin-right: 1rem; border: 2px solid #E74C3C;">
                     <div class="info-box-content">
                         <strong>Regla de oro:</strong> Nunca improvises rutas. Sigue siempre las instrucciones de la brigada y el plan de tu sede.
                     </div>
@@ -126,6 +126,13 @@ const Modulo2 = {
                 <div class="concept-card">
                     <h4>📋 ¿Qué es la Brigada?</h4>
                     <p>Es el grupo de trabajadores <strong>organizados, capacitados y dotados</strong> para prevenir, controlar y reaccionar ante situaciones de riesgo o desastre dentro de la empresa.</p>
+                </div>
+
+                <div class="info-box success" style="align-items: center; margin-bottom: 1.5rem;">
+                    <img src="assets/img/mascot_engineer.jpg" alt="Brigadista CUN" style="width: 60px; height: 60px; object-fit: cover; border-radius: 50%; margin-right: 1rem; border: 2px solid #2ECC71;">
+                    <div class="info-box-content">
+                        <strong>Nuestros Líderes de Prevención:</strong> Identifica a los brigadistas de tu sede por su chaleco distintivo. Ellos están entrenados en Primeros Auxilios, Evacuación y Combate de Incendios para guiarte de forma segura.
+                    </div>
                 </div>
 
                 <div class="timeline">
@@ -220,8 +227,8 @@ const Modulo2 = {
                 </div>
                 <p class="video-caption">📹 Consejos de Seguridad y Canales CUN</p>
 
-                <div class="info-box warning">
-                    <span class="info-box-icon">💡</span>
+                <div class="info-box warning" style="align-items: center;">
+                    <img src="assets/img/mascot_firefighter.jpg" alt="Mascota Bombero" style="width: 60px; height: 60px; object-fit: cover; border-radius: 50%; margin-right: 1rem; border: 2px solid #F18F01;">
                     <div class="info-box-content">
                         <strong>Tip:</strong> Familiarízate con las rutas de evacuación de tu sede. En un momento de emergencia, el conocimiento previo marca la diferencia.
                     </div>

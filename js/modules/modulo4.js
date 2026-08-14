@@ -24,8 +24,8 @@ const Modulo4 = {
                     <p>En este módulo aprenderás a diferenciar entre un <strong>acto inseguro</strong> y una <strong>condición insegura</strong>, a distinguir técnicamente entre <strong>peligro y riesgo</strong> bajo la guía GTC 45, y a conocer las obligaciones del Decreto 1072 y la jerarquía de controles de seguridad.</p>
                 </div>
 
-                <div class="info-box success">
-                    <span class="info-box-icon">🎯</span>
+                <div class="info-box success" style="align-items: center;">
+                    <img src="assets/img/mascot_warning.jpg" alt="Mascota Inspector" style="width: 60px; height: 60px; object-fit: cover; border-radius: 50%; margin-right: 1rem; border: 2px solid #F18F01;">
                     <div class="info-box-content">
                         <strong>Prevención proactiva:</strong> Aprender a identificar a tiempo las fuentes de peligro en tu entorno laboral es clave para evitar incidentes y proteger la salud de todos.
                     </div>

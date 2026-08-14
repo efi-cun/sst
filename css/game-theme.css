@@ -1,0 +1,615 @@
+/* ==========================================================================
+   GAME THEME EXTENSION FOR REINDUCCIÓN SST CUN
+   ========================================================================== */
+
+/* Importing a Gaming Font */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Press+Start+2P&display=swap');
+
+:root {
+    --game-font: 'Orbitron', sans-serif;
+    --pixel-font: 'Press Start 2P', monospace;
+    --neon-blue: #00f3ff;
+    --neon-green: #39ff14;
+    --neon-orange: #ff007f;
+    --game-bg-dark: #090e15;
+    --game-card-dark: #121a24;
+    --game-border-dark: #1f3a60;
+}
+
+/* App Logo & Gaming Aesthetic Adjustments */
+body {
+    font-family: var(--font-body);
+}
+
+/* Apply Orbitron/Gaming Font to Headings and Dashboard Elements */
+h1, h2, h3, .hud-label, .hud-value, .module-number, .score-value, .cert-label {
+    font-family: var(--game-font) !important;
+    letter-spacing: 1px;
+}
+
+/* Gaming header style */
+.dashboard-header {
+    background: var(--bg-card) !important;
+    border-bottom: 3px solid var(--primary) !important;
+    position: relative;
+}
+
+.dashboard-header::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--neon-blue), var(--secondary), var(--success));
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+}
+
+/* Space Runway Progress Track */
+.space-runway-container {
+    position: relative;
+    padding: 2.2rem 0.5rem 0.5rem 0.5rem; /* Space at top for spaceship */
+    margin: 1.5rem 0;
+}
+
+.space-runway {
+    position: relative;
+    height: 24px;
+    background: #0b131e;
+    border: 2px solid var(--game-border-dark);
+    border-radius: 12px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.8), 0 0 15px rgba(46, 134, 171, 0.1);
+}
+
+.space-stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-image: 
+        radial-gradient(1.5px 1.5px at 20px 8px, #fff, transparent),
+        radial-gradient(1px 1px at 50px 15px, rgba(255,255,255,0.7), transparent),
+        radial-gradient(2px 2px at 90px 4px, #fff, transparent),
+        radial-gradient(1px 1px at 130px 18px, rgba(255,255,255,0.5), transparent),
+        radial-gradient(1.5px 1.5px at 170px 10px, #fff, transparent);
+    background-size: 200px 20px;
+    background-repeat: repeat-x;
+    animation: stars-scroll 10s linear infinite;
+    opacity: 0.8;
+    border-radius: 10px;
+    pointer-events: none;
+    transition: animation-duration 0.5s ease;
+}
+
+@keyframes stars-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+.progress-fill-glow {
+    height: 100%;
+    background: linear-gradient(90deg, var(--secondary) 0%, var(--success) 100%);
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(46, 134, 171, 0.6), 0 0 20px rgba(46, 134, 171, 0.4);
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Spaceship Player Avatar */
+.spaceship-player {
+    position: absolute;
+    top: -26px;
+    width: 60px;
+    height: 60px;
+    transform: translateX(-50%);
+    transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spaceship-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid var(--border);
+    background: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+/* Engine Flame Effect */
+.engine-flame {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 25px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,165,0,0.8), rgba(255,0,0,0));
+    border-radius: 50% 50% 20% 20%;
+    opacity: 0;
+    filter: blur(1.5px);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+/* Floating & Shaking Animations */
+@keyframes spaceship-float {
+    0% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, -6px); }
+    100% { transform: translate(-50%, 0); }
+}
+
+@keyframes spaceship-shake-1 {
+    0% { transform: translate(-50%, 0) rotate(0deg); }
+    50% { transform: translate(-50%, -2px) rotate(-1deg); }
+    100% { transform: translate(-50%, 0) rotate(0deg); }
+}
+
+@keyframes spaceship-shake-2 {
+    0% { transform: translate(-50%, 0) rotate(0deg); }
+    25% { transform: translate(-50%, -2px) rotate(-1.5deg); }
+    50% { transform: translate(-50%, 1px) rotate(0deg); }
+    75% { transform: translate(-50%, -1px) rotate(1.5deg); }
+    100% { transform: translate(-50%, 0) rotate(0deg); }
+}
+
+@keyframes spaceship-warp {
+    0% { transform: translate(-50%, 0) scale(1) rotate(0deg); }
+    50% { transform: translate(-50%, -1px) scale(1.05) rotate(-2deg); }
+    100% { transform: translate(-50%, 0) scale(1) rotate(0deg); }
+}
+
+@keyframes flame-burn {
+    0% { height: 18px; opacity: 0.8; }
+    50% { height: 28px; opacity: 1; filter: blur(0.5px); }
+    100% { height: 18px; opacity: 0.8; }
+}
+
+/* Speed Classes mapped to completed modules count */
+/* Speed 0: 0 modules */
+.spaceship-player.speed-0 {
+    animation: spaceship-float 3.5s ease-in-out infinite;
+}
+.spaceship-player.speed-0 .spaceship-img {
+    border-color: var(--text-muted);
+}
+.space-runway.runway-speed-0 .space-stars {
+    animation-play-state: paused;
+    opacity: 0.3;
+}
+
+/* Speed 1: 1 module */
+.spaceship-player.speed-1 {
+    animation: spaceship-float 2.5s ease-in-out infinite;
+}
+.spaceship-player.speed-1 .spaceship-img {
+    border-color: var(--secondary);
+    box-shadow: 0 0 10px rgba(46, 134, 171, 0.5);
+}
+.spaceship-player.speed-1 .engine-flame {
+    opacity: 0.7;
+    height: 18px;
+    animation: flame-burn 0.5s ease infinite;
+}
+.space-runway.runway-speed-1 .space-stars {
+    animation-duration: 15s;
+}
+
+/* Speed 2: 2 modules */
+.spaceship-player.speed-2 {
+    animation: spaceship-float 2s ease-in-out infinite;
+}
+.spaceship-player.speed-2 .spaceship-img {
+    border-color: var(--success);
+    box-shadow: 0 0 15px rgba(46, 204, 113, 0.6);
+}
+.spaceship-player.speed-2 .engine-flame {
+    opacity: 0.85;
+    height: 22px;
+    background: linear-gradient(to bottom, #fff, #3498db, rgba(52, 152, 219, 0));
+    animation: flame-burn 0.4s ease infinite;
+}
+.space-runway.runway-speed-2 .space-stars {
+    animation-duration: 10s;
+}
+
+/* Speed 3: 3 modules */
+.spaceship-player.speed-3 {
+    animation: spaceship-shake-1 0.4s ease-in-out infinite;
+}
+.spaceship-player.speed-3 .spaceship-img {
+    border-color: var(--accent);
+    box-shadow: 0 0 15px var(--accent);
+}
+.spaceship-player.speed-3 .engine-flame {
+    opacity: 0.9;
+    height: 28px;
+    background: linear-gradient(to bottom, #fff, var(--accent), rgba(241, 143, 1, 0));
+    animation: flame-burn 0.3s ease infinite;
+}
+.space-runway.runway-speed-3 .space-stars {
+    animation-duration: 6s;
+}
+
+/* Speed 4: 4 modules */
+.spaceship-player.speed-4 {
+    animation: spaceship-shake-1 0.2s linear infinite;
+}
+.spaceship-player.speed-4 .spaceship-img {
+    border-color: #e67e22;
+    box-shadow: 0 0 20px #e67e22;
+}
+.spaceship-player.speed-4 .engine-flame {
+    opacity: 1;
+    height: 35px;
+    background: linear-gradient(to bottom, #fff, #e67e22, rgba(230, 126, 34, 0));
+    animation: flame-burn 0.2s ease infinite;
+}
+.space-runway.runway-speed-4 .space-stars {
+    animation-duration: 3s;
+}
+
+/* Speed 5: 5 modules */
+.spaceship-player.speed-5 {
+    animation: spaceship-shake-2 0.15s linear infinite;
+}
+.spaceship-player.speed-5 .spaceship-img {
+    border-color: var(--danger);
+    box-shadow: 0 0 25px var(--danger), 0 0 10px rgba(231, 76, 60, 0.5);
+}
+.spaceship-player.speed-5 .engine-flame {
+    opacity: 1;
+    height: 45px;
+    background: linear-gradient(to bottom, #fff, var(--danger), rgba(231, 76, 60, 0));
+    animation: flame-burn 0.12s ease infinite;
+}
+.space-runway.runway-speed-5 .space-stars {
+    animation-duration: 1.5s;
+}
+
+/* Speed 6: 6 modules (100%) */
+.spaceship-player.speed-6 {
+    animation: spaceship-warp 0.08s linear infinite;
+}
+.spaceship-player.speed-6 .spaceship-img {
+    border-color: #9b59b6;
+    box-shadow: 0 0 30px #9b59b6, 0 0 50px rgba(155, 89, 182, 0.9);
+}
+.spaceship-player.speed-6 .engine-flame {
+    opacity: 1;
+    height: 60px;
+    background: linear-gradient(to bottom, #fff, #9b59b6, #e74c3c, rgba(155, 89, 182, 0));
+    animation: flame-burn 0.08s ease infinite;
+}
+.space-runway.runway-speed-6 .space-stars {
+    animation-duration: 0.5s;
+    box-shadow: 0 0 15px var(--neon-blue);
+}
+
+/* Game HUD Style for progress section */
+.progress-section.game-hud {
+    background: var(--bg-card);
+    border: 2px solid var(--primary);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: 0 0 15px rgba(27, 58, 92, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-section.game-hud::before {
+    content: 'HUD V1.0';
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 0.6rem;
+    font-family: var(--game-font);
+    opacity: 0.5;
+    letter-spacing: 2px;
+}
+
+.hud-label {
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.hud-value {
+    color: var(--secondary);
+    font-weight: 800;
+    font-size: 1.1rem;
+    text-shadow: 0 0 5px rgba(46, 134, 171, 0.3);
+}
+
+/* Card gaming changes: Levels and Missions */
+.module-card {
+    position: relative;
+    border: 2px solid var(--border);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, border-color 0.3s ease !important;
+}
+
+.module-card:hover:not(.locked) {
+    transform: translateY(-8px) scale(1.02);
+    border-color: var(--secondary);
+    box-shadow: 0 12px 30px rgba(46, 134, 171, 0.2) !important;
+}
+
+.module-card.completed {
+    border-color: var(--success);
+    background: linear-gradient(180deg, var(--bg-card) 0%, rgba(46, 204, 113, 0.03) 100%);
+}
+
+.module-card.completed:hover {
+    box-shadow: 0 12px 30px rgba(46, 204, 113, 0.2) !important;
+}
+
+.module-card.locked {
+    opacity: 0.75;
+    background: linear-gradient(180deg, var(--bg-card) 0%, rgba(0, 0, 0, 0.05) 100%);
+}
+
+/* Level tags inside cards */
+.module-card .module-number {
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: var(--text-light);
+    transition: color 0.3s ease;
+}
+
+.module-card.completed .module-number {
+    color: var(--success);
+}
+
+.module-card.in-progress .module-number {
+    color: var(--secondary);
+}
+
+/* Custom styled badge for Locked State */
+.module-card-header .module-status {
+    font-size: 1.1rem;
+}
+
+/* Level completion checkmark animations */
+@keyframes pop-check {
+    0% { transform: scale(0); }
+    90% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.module-card.completed .module-status {
+    animation: pop-check 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Game Interface Buttons */
+.btn {
+    font-family: var(--game-font) !important;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-radius: var(--radius-sm);
+    border: none;
+    position: relative;
+    box-shadow: 0 4px 0 rgba(0,0,0,0.15);
+    transition: all 0.1s ease !important;
+}
+
+.btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 rgba(0,0,0,0.1);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary) 100%);
+    box-shadow: 0 4px 10px rgba(46, 134, 171, 0.3), 0 4px 0 rgba(0,0,0,0.15);
+}
+
+/* Game details on Quiz result */
+.result-container {
+    border: 3px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--bg-card);
+    padding: 3rem 2rem;
+    box-shadow: var(--shadow-lg);
+}
+
+[data-theme="dark"] .result-container {
+    border-color: var(--game-border-dark);
+}
+
+/* Floating controls styling */
+.notes-toggle-float, .theme-toggle-float {
+    border: 2px solid var(--primary);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.notes-toggle-float:hover, .theme-toggle-float:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Animations and retro game grids */
+[data-theme="dark"] .landing-container {
+    position: relative;
+}
+
+/* Add grid pattern overlay to Landing Screen on Dark Theme */
+[data-theme="dark"] .landing-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+}
+
+/* ==========================================================
+   GAME LOADING SCREEN & RETRO ICON BADGES
+   ========================================================== */
+
+/* Game-loading Screen styling */
+.loading-screen.game-loading {
+    background: radial-gradient(circle, #0c1726 0%, #060b12 100%) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+.loading-container-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3rem;
+    max-width: 900px;
+    width: 90%;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .loading-container-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    .loading-mascot-side {
+        order: -1;
+    }
+    .loading-mascot-img {
+        max-height: 180px !important;
+    }
+}
+
+.pixel-loading-title {
+    font-family: var(--game-font) !important;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--neon-blue);
+    margin: 0;
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.6), 0 0 20px rgba(0, 243, 255, 0.4);
+    letter-spacing: 4px;
+    animation: text-flicker 2s infinite alternate;
+}
+
+@keyframes text-flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow: 0 0 10px rgba(0, 243, 255, 0.6), 0 0 20px rgba(0, 243, 255, 0.4);
+    }
+    20%, 24%, 55% {
+        text-shadow: none;
+    }
+}
+
+.pixel-loading-subtitle {
+    font-size: 1.1rem;
+    color: #fff;
+    margin: 0.5rem 0 2.5rem 0;
+    opacity: 0.9;
+    font-family: var(--font-body);
+}
+
+.pixel-progress-container {
+    background: rgba(11, 19, 30, 0.6);
+    border: 2px solid var(--game-border-dark);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    position: relative;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+}
+
+.pixel-progress-val {
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    background: #0c1726;
+    padding: 0 10px;
+    font-family: var(--game-font) !important;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--neon-green);
+    border: 2px solid var(--game-border-dark);
+    border-radius: 6px;
+}
+
+.pixel-loading-bar {
+    height: 16px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    border: 1px solid #1f3a60;
+    overflow: hidden;
+    margin-top: 0.5rem;
+}
+
+.pixel-loading-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--neon-blue), var(--neon-green));
+    box-shadow: 0 0 10px var(--neon-blue);
+    border-radius: 8px;
+    animation: fill-load 1.5s forwards cubic-bezier(0.1, 0.8, 0.3, 1);
+}
+
+@keyframes fill-load {
+    0% { width: 0%; }
+    20% { width: 25%; }
+    50% { width: 55%; }
+    80% { width: 90%; }
+    100% { width: 100%; }
+}
+
+.pixel-loading-status {
+    margin-top: 0.8rem;
+    font-family: var(--game-font);
+    font-size: 0.75rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.loading-mascot-side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-mascot-img {
+    max-height: 300px;
+    filter: drop-shadow(0 8px 25px rgba(0,0,0,0.5)) drop-shadow(0 0 15px rgba(57, 255, 20, 0.3));
+    animation: mascot-jump 3s ease-in-out infinite;
+}
+
+@keyframes mascot-jump {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(2deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* Style for pixel badges in module grid */
+.module-icon svg {
+    width: 64px;
+    height: 64px;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.module-card:hover .module-icon svg {
+    transform: scale(1.15) rotate(4deg);
+    filter: drop-shadow(0 6px 15px rgba(0, 243, 255, 0.3));
+}

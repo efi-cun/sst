@@ -23,7 +23,7 @@ const AuthManager = (() => {
         return email.toLowerCase().endsWith(CUN_DOMAIN);
     }
 
-    function register(name, cedula, email, password) {
+    async function register(name, cedula, email, password) {
         if (!name || !cedula || !email || !password) {
             return { success: false, message: 'Todos los campos son obligatorios' };
         }
@@ -36,42 +36,78 @@ const AuthManager = (() => {
             return { success: false, message: 'La contraseña debe tener al menos 4 caracteres' };
         }
 
+        // --- Supabase Integration ---
+        if (typeof SupabaseDB !== 'undefined' && SupabaseDB.isConnected()) {
+            const dbResult = await SupabaseDB.registerUser(cedula, name, email, password);
+            if (!dbResult.success) {
+                return { success: false, message: dbResult.message };
+            }
+        }
+
+        // Backup in localStorage
         const users = getUsers();
-        if (users.find(u => u.email === email.toLowerCase())) {
-            return { success: false, message: 'Ya existe una cuenta con este correo' };
+        if (!users.find(u => u.email === email.toLowerCase()) && !users.find(u => u.cedula === cedula)) {
+            const user = {
+                id: cedula,
+                nombre: name,
+                cedula,
+                email: email.toLowerCase(),
+                password: btoa(password),
+                createdAt: new Date().toISOString()
+            };
+            users.push(user);
+            saveUsers(users);
         }
 
-        if (users.find(u => u.cedula === cedula)) {
-            return { success: false, message: 'Ya existe una cuenta con esta cédula' };
-        }
+        await ProgressManager.initUserProgress(cedula, name, email.toLowerCase());
 
-        const user = {
-            id: cedula,
-            nombre: name,
-            cedula,
-            email: email.toLowerCase(),
-            password: btoa(password),
-            createdAt: new Date().toISOString()
-        };
-
-        users.push(user);
-        saveUsers(users);
-
-        ProgressManager.initUserProgress(cedula, name, email.toLowerCase());
-
-        return { success: true, user };
+        return { success: true };
     }
 
-    function login(email, password) {
+    async function login(email, password) {
         if (!email || !password) {
             return { success: false, message: 'Correo y contraseña son obligatorios' };
         }
 
-        const users = getUsers();
-        const user = users.find(u => u.email === email.toLowerCase() && u.password === btoa(password));
+        let user = null;
+        let progress = null;
+        let dbNotes = null;
 
+        // --- Supabase Integration ---
+        if (typeof SupabaseDB !== 'undefined' && SupabaseDB.isConnected()) {
+            const dbResult = await SupabaseDB.loginUser(email, password);
+            if (!dbResult.success && !dbResult.fallback) {
+                return { success: false, message: dbResult.message };
+            }
+            if (dbResult.success) {
+                user = {
+                    id: dbResult.user.cedula,
+                    nombre: dbResult.user.nombre,
+                    cedula: dbResult.user.cedula,
+                    email: dbResult.user.email,
+                    password: dbResult.user.password,
+                    createdAt: dbResult.user.created_at
+                };
+                progress = dbResult.progress;
+                dbNotes = dbResult.notes;
+            }
+        }
+
+        // Local Storage Fallback if Supabase not connected or query skipped
         if (!user) {
-            return { success: false, message: 'Correo o contraseña incorrectos' };
+            const users = getUsers();
+            const localUser = users.find(u => u.email === email.toLowerCase() && u.password === btoa(password));
+            if (!localUser) {
+                return { success: false, message: 'Correo o contraseña incorrectos' };
+            }
+            user = {
+                id: localUser.cedula,
+                nombre: localUser.nombre,
+                cedula: localUser.cedula,
+                email: localUser.email,
+                password: localUser.password,
+                createdAt: localUser.createdAt
+            };
         }
 
         const session = {
@@ -83,7 +119,26 @@ const AuthManager = (() => {
 
         sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
 
-        ProgressManager.initUserProgress(user.cedula, user.nombre, user.email);
+        // Sync pulled progress to local storage
+        if (progress) {
+            ProgressManager.saveUserProgressDirectly(user.cedula, progress);
+        } else {
+            await ProgressManager.initUserProgress(user.cedula, user.nombre, user.email);
+        }
+
+        // Sync pulled notes to local storage
+        if (dbNotes && dbNotes.length > 0 && typeof NotesManager !== 'undefined') {
+            const mappedNotes = dbNotes.map(n => ({
+                id: n.id,
+                modulo: n.modulo,
+                texto: n.texto,
+                fecha: n.fecha
+            }));
+            localStorage.setItem(`sst_cun_notes_${user.cedula}`, JSON.stringify(mappedNotes));
+        }
+
+        // Start session time tracking
+        ProgressManager.startTimeTracking(user.cedula);
 
         return { success: true, user, session };
     }
@@ -111,6 +166,7 @@ const AuthManager = (() => {
     }
 
     function logout() {
+        ProgressManager.stopTimeTracking();
         sessionStorage.removeItem(SESSION_KEY);
     }
 
