@@ -24,7 +24,7 @@ const SupabaseDB = (() => {
     }
 
     // ==========================================
-    -- MÉTODOS DE USUARIOS (AUTENTICACIÓN)
+    // MÉTODOS DE USUARIOS (AUTENTICACIÓN)
     // ==========================================
 
     // Registrar un usuario en Supabase
@@ -150,7 +150,7 @@ const SupabaseDB = (() => {
     }
 
     // ==========================================
-    -- MÉTODOS DE PROGRESO
+    // MÉTODOS DE PROGRESO
     // ==========================================
 
     // Guardar progreso completo
@@ -190,7 +190,7 @@ const SupabaseDB = (() => {
     }
 
     // ==========================================
-    -- MÉTODOS DE NOTAS
+    // MÉTODOS DE NOTAS
     // ==========================================
 
     // Sincronizar todas las notas
@@ -236,7 +236,7 @@ const SupabaseDB = (() => {
 
 
     // ==========================================
-    -- MAPEO DE DATOS (Local <-> Supabase)
+    // MAPEO DE DATOS (Local <-> Supabase)
     // ==========================================
 
     function mapSupabaseProgressToLocal(dbProgress) {
