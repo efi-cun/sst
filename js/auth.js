@@ -36,6 +36,15 @@ const AuthManager = (() => {
             return { success: false, message: 'La contraseña debe tener al menos 4 caracteres' };
         }
 
+        // Check if user already exists in localStorage first
+        const users = getUsers();
+        if (users.find(u => u.email === email.toLowerCase())) {
+            return { success: false, message: 'Ya existe una cuenta con este correo' };
+        }
+        if (users.find(u => u.cedula === cedula)) {
+            return { success: false, message: 'Ya existe una cuenta con esta cédula' };
+        }
+
         // --- Supabase Integration ---
         if (typeof SupabaseDB !== 'undefined' && SupabaseDB.isConnected()) {
             const dbResult = await SupabaseDB.registerUser(cedula, name, email, password);
