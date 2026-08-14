@@ -160,6 +160,11 @@ const NotesManager = (() => {
             SupabaseDB.saveNote(user.cedula || user.userId, syncedNote);
         }
 
+        // Sync with Google Sheets
+        if (syncedNote && typeof GoogleSheetsSync !== 'undefined' && GoogleSheetsSync.isConfigured()) {
+            GoogleSheetsSync.saveNote(user.cedula || user.userId, syncedNote);
+        }
+
         textEl.value = '';
         renderNotes();
     }
@@ -172,6 +177,11 @@ const NotesManager = (() => {
             // Sync delete with Supabase DB
             if (typeof SupabaseDB !== 'undefined' && SupabaseDB.isConnected()) {
                 SupabaseDB.deleteNote(id);
+            }
+
+            // Sync delete with Google Sheets
+            if (typeof GoogleSheetsSync !== 'undefined' && GoogleSheetsSync.isConfigured()) {
+                GoogleSheetsSync.deleteNote(id);
             }
 
             renderNotes();
