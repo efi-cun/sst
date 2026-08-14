@@ -108,6 +108,23 @@ const AuthManager = (() => {
                 password: localUser.password,
                 createdAt: localUser.createdAt
             };
+
+            // Proactive sync of local user and progress to Supabase if connected now
+            if (typeof SupabaseDB !== 'undefined' && SupabaseDB.isConnected()) {
+                try {
+                    const regResult = await SupabaseDB.registerUser(user.cedula, user.nombre, user.email, password);
+                    if (regResult.success) {
+                        console.log('✓ Usuario local sincronizado con Supabase.');
+                        const localProgress = ProgressManager.getUserProgress(user.cedula);
+                        if (localProgress) {
+                            await SupabaseDB.saveProgress(user.cedula, localProgress);
+                            console.log('✓ Progreso local sincronizado con Supabase.');
+                        }
+                    }
+                } catch (err) {
+                    console.error('Error al auto-sincronizar usuario local con Supabase:', err);
+                }
+            }
         }
 
         const session = {
