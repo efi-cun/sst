@@ -86,6 +86,23 @@ const SupabaseDB = (() => {
         }
     }
 
+    // Verificar si un usuario existe por cédula en Supabase
+    async function checkUserExists(cedula) {
+        if (!isConnected()) return false;
+        try {
+            const { data, error } = await client
+                .from('usuarios')
+                .select('cedula')
+                .eq('cedula', cedula)
+                .maybeSingle();
+
+            if (error) return false;
+            return data !== null;
+        } catch (e) {
+            return false;
+        }
+    }
+
     // Iniciar sesión con Supabase
     async function loginUser(email, password) {
         if (!isConnected()) return { success: false, fallback: true };
@@ -102,7 +119,7 @@ const SupabaseDB = (() => {
             if (error) throw error;
 
             if (!user) {
-                return { success: false, message: 'Correo o contraseña incorrectos en base de datos' };
+                return { success: false, message: 'Correo o contraseña incorrectos', fallback: true };
             }
 
             // Obtener progreso del usuario
@@ -309,6 +326,7 @@ const SupabaseDB = (() => {
     return {
         init,
         isConnected,
+        checkUserExists,
         registerUser,
         loginUser,
         saveProgress,

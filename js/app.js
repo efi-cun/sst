@@ -43,6 +43,7 @@ const App = (() => {
                 const user = AuthManager.getCurrentUser();
                 if (user) {
                     ProgressManager.startTimeTracking(user.userId || user.cedula);
+                    AuthManager.syncActiveSession();
                 }
                 showDashboard();
             } else {

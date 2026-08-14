@@ -187,6 +187,39 @@ const AuthManager = (() => {
         sessionStorage.removeItem(SESSION_KEY);
     }
 
+    async function syncActiveSession() {
+        if (typeof SupabaseDB === 'undefined' || !SupabaseDB.isConnected()) return;
+        const session = getSession();
+        if (!session) return;
+        
+        try {
+            const exists = await SupabaseDB.checkUserExists(session.userId);
+            if (!exists) {
+                const users = getUsers();
+                const localUser = users.find(u => u.cedula === session.userId);
+                if (localUser) {
+                    const rawPassword = atob(localUser.password);
+                    const regResult = await SupabaseDB.registerUser(localUser.cedula, localUser.nombre, localUser.email, rawPassword);
+                    if (regResult.success) {
+                        console.log('✓ Usuario de sesión activa sincronizado con Supabase.');
+                        const localProgress = ProgressManager.getUserProgress(localUser.cedula);
+                        if (localProgress) {
+                            await SupabaseDB.saveProgress(localUser.cedula, localProgress);
+                            console.log('✓ Progreso de sesión activa sincronizado con Supabase.');
+                        }
+                    }
+                }
+            } else {
+                const localProgress = ProgressManager.getUserProgress(session.userId);
+                if (localProgress) {
+                    await SupabaseDB.saveProgress(session.userId, localProgress);
+                }
+            }
+        } catch (err) {
+            console.error('Error al sincronizar sesión activa con Supabase:', err);
+        }
+    }
+
     return {
         register,
         login,
@@ -194,6 +227,7 @@ const AuthManager = (() => {
         isLoggedIn,
         getCurrentUser,
         logout,
-        validateEmail
+        validateEmail,
+        syncActiveSession
     };
 })();
