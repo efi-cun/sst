@@ -70,6 +70,13 @@ const AuthManager = (() => {
 
         await ProgressManager.initUserProgress(cedula, name, email.toLowerCase());
 
+        // --- Google Sheets Sincronización ---
+        if (typeof GoogleSheetsSync !== 'undefined' && GoogleSheetsSync.isConfigured()) {
+            GoogleSheetsSync.registerUser(cedula, name, email, password)
+                .then(res => console.log('✓ Registro sincronizado con Google Sheets:', res))
+                .catch(err => console.error('Error al sincronizar registro con Google Sheets:', err));
+        }
+
         return { success: true };
     }
 
