@@ -54,8 +54,8 @@ const AuthManager = (() => {
         }
 
         // Backup in localStorage
-        const users = getUsers();
-        if (!users.find(u => u.email === email.toLowerCase()) && !users.find(u => u.cedula === cedula)) {
+        const freshUsers = getUsers();
+        if (!freshUsers.find(u => u.email === email.toLowerCase()) && !freshUsers.find(u => u.cedula === cedula)) {
             const user = {
                 id: cedula,
                 nombre: name,
@@ -64,8 +64,8 @@ const AuthManager = (() => {
                 password: btoa(password),
                 createdAt: new Date().toISOString()
             };
-            users.push(user);
-            saveUsers(users);
+            freshUsers.push(user);
+            saveUsers(freshUsers);
         }
 
         await ProgressManager.initUserProgress(cedula, name, email.toLowerCase());
