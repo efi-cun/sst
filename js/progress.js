@@ -149,6 +149,15 @@ const ProgressManager = (() => {
                         tiempo_total_segundos: all[userId].tiempoTotalSegundos
                     });
                 }
+
+                // Sincronizar con Google Sheets cada 60 segundos para evitar límites de cuota de la API
+                if (all[userId].tiempoTotalSegundos % 60 === 0) {
+                    if (typeof GoogleSheetsSync !== 'undefined' && GoogleSheetsSync.isConfigured()) {
+                        GoogleSheetsSync.updateProgressFields(userId, {
+                            tiempo_total_segundos: all[userId].tiempoTotalSegundos
+                        });
+                    }
+                }
             }
         }, 10000);
     }
