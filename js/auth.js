@@ -217,35 +217,59 @@ const AuthManager = (() => {
     }
 
     async function syncActiveSession() {
-        if (typeof SupabaseDB === 'undefined' || !SupabaseDB.isConnected()) return;
         const session = getSession();
         if (!session) return;
         
-        try {
-            const exists = await SupabaseDB.checkUserExists(session.userId);
-            if (!exists) {
+        // 1. Sincronización con Supabase
+        if (typeof SupabaseDB !== 'undefined' && SupabaseDB.isConnected()) {
+            try {
+                const exists = await SupabaseDB.checkUserExists(session.userId);
+                if (!exists) {
+                    const users = getUsers();
+                    const localUser = users.find(u => u.cedula === session.userId);
+                    if (localUser) {
+                        const rawPassword = atob(localUser.password);
+                        const regResult = await SupabaseDB.registerUser(localUser.cedula, localUser.nombre, localUser.email, rawPassword);
+                        if (regResult.success) {
+                            console.log('✓ Usuario de sesión activa sincronizado con Supabase.');
+                            const localProgress = ProgressManager.getUserProgress(localUser.cedula);
+                            if (localProgress) {
+                                await SupabaseDB.saveProgress(localUser.cedula, localProgress);
+                                console.log('✓ Progreso de sesión activa sincronizado con Supabase.');
+                            }
+                        }
+                    }
+                } else {
+                    const localProgress = ProgressManager.getUserProgress(session.userId);
+                    if (localProgress) {
+                        await SupabaseDB.saveProgress(session.userId, localProgress);
+                    }
+                }
+            } catch (err) {
+                console.error('Error al sincronizar sesión activa con Supabase:', err);
+            }
+        }
+
+        // 2. Sincronización con Google Sheets
+        if (typeof GoogleSheetsSync !== 'undefined' && GoogleSheetsSync.isConfigured()) {
+            try {
                 const users = getUsers();
                 const localUser = users.find(u => u.cedula === session.userId);
                 if (localUser) {
                     const rawPassword = atob(localUser.password);
-                    const regResult = await SupabaseDB.registerUser(localUser.cedula, localUser.nombre, localUser.email, rawPassword);
-                    if (regResult.success) {
-                        console.log('✓ Usuario de sesión activa sincronizado con Supabase.');
-                        const localProgress = ProgressManager.getUserProgress(localUser.cedula);
-                        if (localProgress) {
-                            await SupabaseDB.saveProgress(localUser.cedula, localProgress);
-                            console.log('✓ Progreso de sesión activa sincronizado con Supabase.');
-                        }
-                    }
+                    GoogleSheetsSync.registerUser(localUser.cedula, localUser.nombre, localUser.email, rawPassword)
+                        .then(res => {
+                            console.log('✓ Sincronización de registro con Google Sheets:', res);
+                            const localProgress = ProgressManager.getUserProgress(localUser.cedula);
+                            if (localProgress) {
+                                GoogleSheetsSync.saveProgress(localUser.cedula, localProgress);
+                            }
+                        })
+                        .catch(err => console.error('Error al sincronizar registro con Google Sheets:', err));
                 }
-            } else {
-                const localProgress = ProgressManager.getUserProgress(session.userId);
-                if (localProgress) {
-                    await SupabaseDB.saveProgress(session.userId, localProgress);
-                }
+            } catch (err) {
+                console.error('Error al iniciar sincronización activa con Google Sheets:', err);
             }
-        } catch (err) {
-            console.error('Error al sincronizar sesión activa con Supabase:', err);
         }
     }
 
