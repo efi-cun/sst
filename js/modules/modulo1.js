@@ -11,13 +11,13 @@ const Modulo1 = {
             id: 'bienvenida',
             titulo: 'Introducción',
             contenido: () => `
-                <div class="section-title">🎬 Bienvenida al Curso de Reinducción SST</div>
+                <div class="section-title">🎬 Bienvenida al Curso de Reinducción SST 2.0</div>
                 <p class="section-subtitle">Conoce lo que aprenderás en este programa de formación</p>
 
                 <div class="video-container">
                     <iframe src="https://www.youtube-nocookie.com/embed/qJFB96vTPwk" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
                 </div>
-                <p class="video-caption">📹 Introducción al curso de Reinducción SST</p>
+                <p class="video-caption">📹 Introducción al curso de Reinducción SST 2.0</p>
 
                 <div class="concept-card">
                     <h4>📋 ¿Qué aprenderás en este curso?</h4>

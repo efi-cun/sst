@@ -169,7 +169,7 @@ const CertificateGenerator = (() => {
 
         // Description
         ctx.font = '13px Inter, sans-serif';
-        ctx.fillText('Por haber completado satisfactoriamente el curso de Reinducción SST', 400, 345);
+        ctx.fillText('Por haber completado satisfactoriamente el curso de Reinducción SST 2.0', 400, 345);
         ctx.fillText(`con una duración de ${certData.duration}`, 400, 365);
 
         // Separator line
