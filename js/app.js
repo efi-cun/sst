@@ -130,8 +130,20 @@ const App = (() => {
 
     // ============ AUTH HANDLERS ============
     async function handleLogin() {
-        const email = document.getElementById('login-email').value.trim();
-        const password = document.getElementById('login-password').value;
+        console.log('Ingresar clicked. Reading values...');
+        const emailEl = document.getElementById('login-email');
+        const passEl = document.getElementById('login-password');
+        
+        if (!emailEl || !passEl) {
+            console.error('Missing login elements in DOM!');
+            alert('Error interno: Faltan elementos en el formulario de inicio de sesión.');
+            return;
+        }
+
+        const email = emailEl.value.trim();
+        const password = passEl.value;
+        
+        console.log('Login values read:', { email, password: '***' });
 
         const btnLogin = document.getElementById('btn-login');
         const originalText = btnLogin.textContent;
@@ -139,14 +151,20 @@ const App = (() => {
         btnLogin.disabled = true;
 
         try {
+            console.log('Calling AuthManager.login...');
             const result = await AuthManager.login(email, password);
+            console.log('AuthManager.login result:', result);
+            
             if (result.success) {
                 showDashboard();
             } else {
+                console.warn('Login failed:', result.message);
                 showError('login-error', result.message);
             }
         } catch (e) {
-            showError('login-error', 'Error al conectar con la base de datos');
+            console.error('Exception in handleLogin:', e);
+            showError('login-error', 'Error al conectar con la base de datos: ' + e.message);
+            alert('Excepción en Inicio de Sesión: ' + e.message);
         } finally {
             btnLogin.textContent = originalText;
             btnLogin.disabled = false;
@@ -154,10 +172,24 @@ const App = (() => {
     }
 
     async function handleRegister() {
-        const name = document.getElementById('reg-name').value.trim();
-        const cedula = document.getElementById('reg-id').value.trim();
-        const email = document.getElementById('reg-email').value.trim();
-        const password = document.getElementById('reg-password').value;
+        console.log('Crear cuenta clicked. Reading values...');
+        const nameEl = document.getElementById('reg-name');
+        const idEl = document.getElementById('reg-id');
+        const emailEl = document.getElementById('reg-email');
+        const passEl = document.getElementById('reg-password');
+        
+        if (!nameEl || !idEl || !emailEl || !passEl) {
+            console.error('Missing register elements in DOM!');
+            alert('Error interno: Faltan elementos en el formulario de registro.');
+            return;
+        }
+
+        const name = nameEl.value.trim();
+        const cedula = idEl.value.trim();
+        const email = emailEl.value.trim();
+        const password = passEl.value;
+        
+        console.log('Register values read:', { name, cedula, email, password: '***' });
 
         const btnRegister = document.getElementById('btn-register');
         const originalText = btnRegister.textContent;
@@ -165,15 +197,27 @@ const App = (() => {
         btnRegister.disabled = true;
 
         try {
+            console.log('Calling AuthManager.register...');
             const result = await AuthManager.register(name, cedula, email, password);
+            console.log('AuthManager.register result:', result);
+            
             if (result.success) {
+                console.log('Registration success. Auto-logging in...');
                 const loginResult = await AuthManager.login(email, password);
-                if (loginResult.success) showDashboard();
+                console.log('Auto-login result:', loginResult);
+                if (loginResult.success) {
+                    showDashboard();
+                } else {
+                    showError('register-error', loginResult.message);
+                }
             } else {
+                console.warn('Registration failed:', result.message);
                 showError('register-error', result.message);
             }
         } catch (e) {
-            showError('register-error', 'Error al registrar el usuario');
+            console.error('Exception in handleRegister:', e);
+            showError('register-error', 'Error al registrar el usuario: ' + e.message);
+            alert('Excepción en Registro: ' + e.message);
         } finally {
             btnRegister.textContent = originalText;
             btnRegister.disabled = false;
