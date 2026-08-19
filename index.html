@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Reinducción SST 2.0 — CUN</title>
+    <meta name="description" content="Curso de Reinducción en Seguridad y Salud en el Trabajo - Corporación Unificada Nacional de Educación Superior">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/modules.css">
+    <link rel="stylesheet" href="css/game-theme.css">
+</head>
+<body>
+    <!-- ============ LOADING SCREEN ============ -->
+    <div id="loading-screen" class="loading-screen game-loading">
+        <div class="loading-container-grid">
+            <div class="loading-text-side">
+                <h1 class="pixel-loading-title">CARGANDO</h1>
+                <p class="pixel-loading-subtitle">una nueva experiencia para tu bienestar...</p>
+                <div class="pixel-progress-container">
+                    <div class="pixel-progress-val" id="load-percent">0%</div>
+                    <div class="pixel-loading-bar">
+                        <div class="pixel-loading-bar-fill"></div>
+                    </div>
+                    <div class="pixel-loading-status">iniciando experiencia</div>
+                </div>
+            </div>
+            <div class="loading-mascot-side">
+                <img src="assets/img/mascot_saltando.png" alt="Mascota Saltando" class="loading-mascot-img">
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ APP CONTAINER ============ -->
+    <div id="app" class="app hidden">
+
+        <!-- ============ LANDING / LOGIN ============ -->
+        <section id="view-landing" class="view active">
+            <div class="landing-bg">
+                <div class="floating-shapes">
+                    <div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                    <div class="shape shape-3"></div>
+                    <div class="shape shape-4"></div>
+                    <div class="shape shape-5"></div>
+                </div>
+            </div>
+            <div class="landing-container">
+                <div class="landing-hero">
+                    <div class="shield-badge">
+                        <svg viewBox="0 0 80 80" class="shield-icon-lg">
+                            <path d="M40 5 L70 20 L70 45 C70 62 55 75 40 78 C25 75 10 62 10 45 L10 20 Z" fill="var(--primary)" stroke="var(--accent)" stroke-width="2"/>
+                            <text x="40" y="48" text-anchor="middle" fill="white" font-size="20" font-weight="bold" font-family="Poppins">SST</text>
+                        </svg>
+                    </div>
+                    <h1 class="landing-title">Curso de Reinducción<br><span>SST</span></h1>
+                    <p class="landing-subtitle">Seguridad y Salud en el Trabajo — CUN</p>
+                    <p class="landing-desc">Un programa diseñado para refrescar y fortalecer la cultura de prevención, autocuidado y respuesta oportuna ante eventualidades laborales.</p>
+                </div>
+
+                <div class="auth-card" id="auth-card" style="position: relative;">
+                    <div class="login-version" style="position: absolute; bottom: 12px; left: 16px; font-size: 0.75rem; font-weight: 500; color: var(--text-muted); opacity: 0.7; font-family: 'Inter', sans-serif;">v2.0</div>
+                    <!-- LOGIN FORM -->
+                    <div id="login-form" class="auth-form active">
+                        <h2>Iniciar Sesión</h2>
+                        <p class="auth-hint">Accede con tu correo corporativo CUN</p>
+                        <div class="form-group">
+                            <label for="login-email">Correo corporativo</label>
+                            <div class="input-icon">
+                                <svg viewBox="0 0 24 24" width="20" height="20"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="var(--text-muted)"/></svg>
+                                <input type="email" id="login-email" placeholder="usuario@cun.edu.co" autocomplete="email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Contraseña</label>
+                            <div class="input-icon">
+                                <svg viewBox="0 0 24 24" width="20" height="20"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z" fill="var(--text-muted)"/></svg>
+                                <input type="password" id="login-password" placeholder="Tu contraseña" autocomplete="current-password">
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-full" id="btn-login">Ingresar</button>
+                        <p class="auth-switch">¿No tienes cuenta? <a href="#" id="show-register">Regístrate aquí</a></p>
+                        <p class="auth-switch" style="margin-top: 0.5rem;"><a href="#" id="show-recover">¿Olvidaste tu contraseña?</a></p>
+                        <div id="login-error" class="error-msg hidden"></div>
+                    </div>
+
+                    <!-- REGISTER FORM -->
+                    <div id="register-form" class="auth-form">
+                        <h2>Registro</h2>
+                        <p class="auth-hint">Crea tu cuenta con correo corporativo @cun.edu.co</p>
+                        <div class="form-group">
+                            <label for="reg-name">Nombre completo</label>
+                            <div class="input-icon">
+                                <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="var(--text-muted)"/></svg>
+                                <input type="text" id="reg-name" placeholder="Nombre y apellidos">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-id">Cédula</label>
+                            <div class="input-icon">
+                                <svg viewBox="0 0 24 24" width="20" height="20"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 9h-2v2H9v-2H7v-2h2V7h2v2h2v2z" fill="var(--text-muted)"/></svg>
+                                <input type="text" id="reg-id" placeholder="Número de cédula" inputmode="numeric">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-email">Correo corporativo (@cun.edu.co)</label>
+                            <div class="input-icon">
+                                <svg viewBox="0 0 24 24" width="20" height="20"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="var(--text-muted)"/></svg>
+                                <input type="email" id="reg-email" placeholder="usuario@cun.edu.co" autocomplete="email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-password">Contraseña</label>
+                            <div class="input-icon">
+                                <svg viewBox="0 0 24 24" width="20" height="20"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z" fill="var(--text-muted)"/></svg>
+                                <input type="password" id="reg-password" placeholder="Crea una contraseña" autocomplete="new-password">
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-full" id="btn-register">Crear cuenta</button>
+                        <p class="auth-switch">¿Ya tienes cuenta? <a href="#" id="show-login">Inicia sesión</a></p>
+                        <div id="register-error" class="error-msg hidden"></div>
+                    </div>
+
+                    <!-- RECOVER PASSWORD FORM -->
+                    <div id="recover-form" class="auth-form">
+                        <h2>Recuperar Contraseña</h2>
+                        <p class="auth-hint">Ingresa tus datos para restablecer tu contraseña</p>
+                        <div class="form-group">
+                            <label for="recover-email">Correo corporativo</label>
+                            <div class="input-icon">
+                                <svg viewBox="0 0 24 24" width="20" height="20"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="var(--text-muted)"/></svg>
+                                <input type="email" id="recover-email" placeholder="usuario@cun.edu.co">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="recover-id">Cédula</label>
+                            <div class="input-icon">
+                                <svg viewBox="0 0 24 24" width="20" height="20"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 9h-2v2H9v-2H7v-2h2V7h2v2h2v2z" fill="var(--text-muted)"/></svg>
+                                <input type="text" id="recover-id" placeholder="Número de cédula" inputmode="numeric">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="recover-new-password">Nueva Contraseña</label>
+                            <div class="input-icon">
+                                <svg viewBox="0 0 24 24" width="20" height="20"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z" fill="var(--text-muted)"/></svg>
+                                <input type="password" id="recover-new-password" placeholder="Mínimo 4 caracteres">
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-full" id="btn-recover">Restablecer Contraseña</button>
+                        <p class="auth-switch">¿Recordaste tu contraseña? <a href="#" id="show-login-from-recover">Inicia sesión</a></p>
+                        <div id="recover-error" class="error-msg hidden"></div>
+                        <div id="recover-success" class="success-msg hidden" style="color: var(--success); font-size: 0.85rem; margin-top: 0.5rem; text-align: center;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ DASHBOARD ============ -->
+        <section id="view-dashboard" class="view">
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <div class="shield-badge-sm">
+                        <svg viewBox="0 0 80 80" width="36" height="36">
+                            <path d="M40 5 L70 20 L70 45 C70 62 55 75 40 78 C25 75 10 62 10 45 L10 20 Z" fill="var(--primary)" stroke="var(--accent)" stroke-width="2"/>
+                            <text x="40" y="48" text-anchor="middle" fill="white" font-size="18" font-weight="bold" font-family="Poppins">SST</text>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="header-title">Reinducción SST 2.0</h1>
+                        <p class="header-subtitle" id="user-greeting">Bienvenido/a</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <button class="theme-toggle" id="theme-toggle" title="Cambiar tema claro/oscuro" aria-label="Cambiar tema">
+                        <span class="theme-toggle-knob" id="theme-knob">☀️</span>
+                    </button>
+                    <button class="btn btn-outline btn-sm" id="btn-links" title="Enlaces de interés">
+                        <svg viewBox="0 0 24 24" width="18" height="18"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z" fill="currentColor"/></svg>
+                        Enlaces
+                    </button>
+                    <button class="btn btn-outline btn-sm" id="btn-logout" title="Cerrar sesión">
+                        <svg viewBox="0 0 24 24" width="18" height="18"><path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" fill="currentColor"/></svg>
+                        Salir
+                    </button>
+                </div>
+            </header>
+
+            <!-- Progress Bar -->
+            <div class="progress-section game-hud">
+                <div class="progress-header">
+                    <span class="hud-label">🚀 Progreso de la Misión</span>
+                    <span id="progress-percent" class="hud-value">0%</span>
+                </div>
+                <div class="space-runway-container">
+                    <div class="space-runway" id="space-runway">
+                        <div class="space-stars"></div>
+                        <div class="progress-fill-glow" id="progress-fill" style="width: 0%"></div>
+                        <!-- Spaceship floating on the progress line -->
+                        <div class="spaceship-player speed-0" id="spaceship-player" style="left: 0%;">
+                            <img src="assets/img/mascot_spaceship.jpg" alt="Nave CUN" class="spaceship-img">
+                            <span class="engine-flame"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress-stats">
+                    <span id="modules-completed" class="hud-sub">0 de 6 módulos completados</span>
+                    <span id="date-start" class="hud-sub"></span>
+                </div>
+            </div>
+
+            <!-- Module Cards -->
+            <div class="modules-grid" id="modules-grid">
+                <div class="module-card" data-module="1" id="card-modulo1">
+                    <div class="module-card-header">
+                        <span class="module-number">01</span>
+                        <span class="module-status" id="status-1">🔒</span>
+                    </div>
+                    <div class="module-icon">
+                        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+                            <path d="M24 4h16v4H24zM16 8h8v4h-8zM40 8h8v4h-8zM8 16h8v8H8zM48 16h8v8h-8zM4 24h4v16H4zM56 24h4v16h-4zM8 40h8v8H8zM48 40h8v8h-8zM16 48h8v4h-8zM40 48h8v4h-8zM24 52h16v4H24z" fill="#333"/>
+                            <path d="M24 8h16v4H24zM16 12h8v4h-8zM40 12h8v4h-8zM12 16h4v8h-4zM48 16h4v8h-4zM8 24h4v16H8zM52 24h4v16h-4zM12 40h4v8h-4zM48 40h4v8h-4zM16 48h8v4h-8zM40 48h8v4h-8zM24 52h16v4H24z" fill="#f5b041"/>
+                            <path d="M24 12h16v28H24zM16 16h8v24h-8zM40 16h8v24h-8zM12 24h4v16h-4zM48 24h4v16h-4z" fill="#fcf3cf"/>
+                            <path d="M24 20h16v4H24zM20 24h24v12H20zM24 36h16v4H24zM28 40h8v4H28zM30 44h4v4h-4z" fill="#e67e22"/>
+                            <path d="M30 28h4v12h-4zM26 32h12v4H26z" fill="#fff"/>
+                        </svg>
+                    </div>
+                    <h3>Fundamentos de SST</h3>
+                    <p>Política y Gestión Ambiental</p>
+                    <div class="module-meta">
+                        <span>⏱ 15 min</span>
+                        <span>🎯 5 preguntas</span>
+                    </div>
+                    <div class="module-progress-bar"><div class="module-progress-fill" id="mprogress-1"></div></div>
+                </div>
+
+                <div class="module-card locked" data-module="2" id="card-modulo2">
+                    <div class="module-card-header">
+                        <span class="module-number">02</span>
+                        <span class="module-status" id="status-2">🔒</span>
+                    </div>
+                    <div class="module-icon">
+                        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+                            <path d="M24 4h16v4H24zM16 8h8v4h-8zM40 8h8v4h-8zM8 16h8v8H8zM48 16h8v8h-8zM4 24h4v16H4zM56 24h4v16h-4zM8 40h8v8H8zM48 40h8v8h-8zM16 48h8v4h-8zM40 48h8v4h-8zM24 52h16v4H24z" fill="#333"/>
+                            <path d="M24 8h16v4H24zM16 12h8v4h-8zM40 12h8v4h-8zM12 16h4v8h-4zM48 16h4v8h-4zM8 24h4v16H8zM52 24h4v16h-4zM12 40h4v8h-4zM48 40h4v8h-4zM16 48h8v4h-8zM40 48h8v4h-8zM24 52h16v4H24z" fill="#ec407a"/>
+                            <path d="M24 12h16v28H24zM16 16h8v24h-8zM40 16h8v24h-8zM12 24h4v16h-4zM48 24h4v16h-4z" fill="#f8bbd0"/>
+                            <path d="M36 16h-8v8h-4v8h8v-4h4v12l8-12h-4v-4h4v-8h-8z" fill="#d81b60"/>
+                            <path d="M32 20h4v4h-4zM28 24h4v4h-4zM32 28h4v4h-4zM36 32h4v4h-4z" fill="#fff"/>
+                        </svg>
+                    </div>
+                    <h3>Planes de Emergencia</h3>
+                    <p>Brigada y rutas de evacuación</p>
+                    <div class="module-meta">
+                        <span>⏱ 10 min</span>
+                        <span>🎯 3 preguntas</span>
+                    </div>
+                    <div class="module-progress-bar"><div class="module-progress-fill" id="mprogress-2"></div></div>
+                </div>
+
+                <div class="module-card locked" data-module="3" id="card-modulo3">
+                    <div class="module-card-header">
+                        <span class="module-number">03</span>
+                        <span class="module-status" id="status-3">🔒</span>
+                    </div>
+                    <div class="module-icon">
+                        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+                            <path d="M24 4h16v4H24zM16 8h8v4h-8zM40 8h8v4h-8zM8 16h8v8H8zM48 16h8v8h-8zM4 24h4v16H4zM56 24h4v16h-4zM8 40h8v8H8zM48 40h8v8h-8zM16 48h8v4h-8zM40 48h8v4h-8zM24 52h16v4H24z" fill="#333"/>
+                            <path d="M24 8h16v4H24zM16 12h8v4h-8zM40 12h8v4h-8zM12 16h4v8h-4zM48 16h4v8h-4zM8 24h4v16H8zM52 24h4v16h-4zM12 40h4v8h-4zM48 40h4v8h-4zM16 48h8v4h-8zM40 48h8v4h-8zM24 52h16v4H24z" fill="#d35400"/>
+                            <path d="M24 12h16v28H24zM16 16h8v24h-8zM40 16h8v24h-8zM12 24h4v16h-4zM48 24h4v16h-4z" fill="#fdebd0"/>
+                            <path d="M24 20h16v4H24zM20 24h24v12H20zM24 36h16v4H24zM28 40h8v4H28zM30 44h4v4h-4z" fill="#fff" stroke="#333" stroke-width="1"/>
+                            <path d="M30 24h4v12h-4zM26 28h12v4H26z" fill="#e74c3c"/>
+                        </svg>
+                    </div>
+                    <h3>Accidente, Incidente y Enfermedad</h3>
+                    <p>Clasificación y reporte</p>
+                    <div class="module-meta">
+                        <span>⏱ 15 min</span>
+                        <span>🎯 5 preguntas</span>
+                    </div>
+                    <div class="module-progress-bar"><div class="module-progress-fill" id="mprogress-3"></div></div>
+                </div>
+
+                <div class="module-card locked" data-module="4" id="card-modulo4">
+                    <div class="module-card-header">
+                        <span class="module-number">04</span>
+                        <span class="module-status" id="status-4">🔒</span>
+                    </div>
+                    <div class="module-icon">
+                        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+                            <path d="M24 4h16v4H24zM16 8h8v4h-8zM40 8h8v4h-8zM8 16h8v8H8zM48 16h8v8h-8zM4 24h4v16H4zM56 24h4v16h-4zM8 40h8v8H8zM48 40h8v8h-8zM16 48h8v4h-8zM40 48h8v4h-8zM24 52h16v4H24z" fill="#333"/>
+                            <path d="M24 8h16v4H24zM16 12h8v4h-8zM40 12h8v4h-8zM12 16h4v8h-4zM48 16h4v8h-4zM8 24h4v16H8zM52 24h4v16h-4zM12 40h4v8h-4zM48 40h4v8h-4zM16 48h8v4h-8zM40 48h8v4h-8zM24 52h16v4H24z" fill="#8e44ad"/>
+                            <path d="M24 12h16v28H24zM16 16h8v24h-8zM40 16h8v24h-8zM12 24h4v16h-4zM48 24h4v16h-4z" fill="#ebdef0"/>
+                            <path d="M28 20h8v4h-8zM24 24h16v12H24zM26 36h12v4H26zM28 16h8v4h-8z" fill="#9b59b6"/>
+                            <path d="M26 24h4v4h-4zM34 24h4v4h-4zM30 28h4v4h-4zM28 32h8v4h-8z" fill="#fff" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <h3>Actos y Condiciones Inseguras</h3>
+                    <p>Peligro y Riesgo</p>
+                    <div class="module-meta">
+                        <span>⏱ 15 min</span>
+                        <span>🎯 5 preguntas</span>
+                    </div>
+                    <div class="module-progress-bar"><div class="module-progress-fill" id="mprogress-4"></div></div>
+                </div>
+
+                <div class="module-card locked" data-module="5" id="card-modulo5">
+                    <div class="module-card-header">
+                        <span class="module-number">05</span>
+                        <span class="module-status" id="status-5">🔒</span>
+                    </div>
+                    <div class="module-icon">
+                        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+                            <path d="M24 4h16v4H24zM16 8h8v4h-8zM40 8h8v4h-8zM8 16h8v8H8zM48 16h8v8h-8zM4 24h4v16H4zM56 24h4v16h-4zM8 40h8v8H8zM48 40h8v8h-8zM16 48h8v4h-8zM40 48h8v4h-8zM24 52h16v4H24z" fill="#333"/>
+                            <path d="M24 8h16v4H24zM16 12h8v4h-8zM40 12h8v4h-8zM12 16h4v8h-4zM48 16h4v8h-4zM8 24h4v16H8zM52 24h4v16h-4zM12 40h4v8h-4zM48 40h4v8h-4zM16 48h8v4h-8zM40 48h8v4h-8zM24 52h16v4H24z" fill="#27ae60"/>
+                            <path d="M24 12h16v28H24zM16 16h8v24h-8zM40 16h8v24h-8zM12 24h4v16h-4zM48 24h4v16h-4z" fill="#e8f8f5"/>
+                            <path d="M20 28h16v4H20zM24 24h8v4h-8zM20 32h24v4H20zM24 36h20v4H24z" fill="#2ecc71"/>
+                            <path d="M40 24h4v8h-4zM36 20h4v4h-4z" fill="#fff"/>
+                        </svg>
+                    </div>
+                    <h3>Peligros, Autocuidado y Equipos</h3>
+                    <p>7 tipos de peligros y prevención</p>
+                    <div class="module-meta">
+                        <span>⏱ 15 min</span>
+                        <span>🎯 5 preguntas</span>
+                    </div>
+                    <div class="module-progress-bar"><div class="module-progress-fill" id="mprogress-5"></div></div>
+                </div>
+
+                <div class="module-card locked" data-module="6" id="card-modulo6">
+                    <div class="module-card-header">
+                        <span class="module-number">06</span>
+                        <span class="module-status" id="status-6">🔒</span>
+                    </div>
+                    <div class="module-icon">
+                        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+                            <path d="M24 4h16v4H24zM16 8h8v4h-8zM40 8h8v4h-8zM8 16h8v8H8zM48 16h8v8h-8zM4 24h4v16H4zM56 24h4v16h-4zM8 40h8v8H8zM48 40h8v8h-8zM16 48h8v4h-8zM40 48h8v4h-8zM24 52h16v4H24z" fill="#333"/>
+                            <path d="M24 8h16v4H24zM16 12h8v4h-8zM40 12h8v4h-8zM12 16h4v8h-4zM48 16h4v8h-4zM8 24h4v16H8zM52 24h4v16h-4zM12 40h4v8h-4zM48 40h4v8h-4zM16 48h8v4h-8zM40 48h8v4h-8zM24 52h16v4H24z" fill="#2980b9"/>
+                            <path d="M24 12h16v28H24zM16 16h8v24h-8zM40 16h8v24h-8zM12 24h4v16h-4zM48 24h4v16h-4z" fill="#ebf5fb"/>
+                            <path d="M30 16h4v4h-4zM28 20h8v4h-8zM26 24h12v12H26zM28 36h8v4h-8z" fill="#3498db"/>
+                            <path d="M30 24h2v8h-2z" fill="#fff" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <h3>Comités de SST</h3>
+                    <p>COPASST, Convivencia y Equidad</p>
+                    <div class="module-meta">
+                        <span>⏱ 10 min</span>
+                        <span>🎯 3 preguntas</span>
+                    </div>
+                    <div class="module-progress-bar"><div class="module-progress-fill" id="mprogress-6"></div></div>
+                </div>
+            </div>
+
+            <!-- Certificate Section -->
+            <div class="certificate-section hidden" id="certificate-section">
+                <div class="certificate-card">
+                    <div class="certificate-icon">🎓</div>
+                    <h3>¡Felicidades!</h3>
+                    <p>Has completado el curso de Reinducción SST 2.0</p>
+                    <button class="btn btn-primary" id="btn-certificate">Descargar Certificado</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ MODULE VIEW ============ -->
+        <section id="view-module" class="view">
+            <header class="module-header">
+                <button class="btn btn-ghost btn-back" id="btn-back-dashboard">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" fill="currentColor"/></svg>
+                    Volver
+                </button>
+                <div class="module-header-info">
+                    <span class="module-header-number" id="mod-header-num">Módulo 01</span>
+                    <h2 id="mod-header-title">Fundamentos de SST</h2>
+                </div>
+                <div class="module-header-timer">
+                    <span id="mod-timer">⏱ 15:00</span>
+                </div>
+            </header>
+
+            <div class="module-content" id="module-content">
+                <!-- Dynamic content injected by JS -->
+            </div>
+
+            <div class="module-nav">
+                <button class="btn btn-outline" id="btn-prev-section" disabled>← Anterior</button>
+                <div class="section-dots" id="section-dots"></div>
+                <button class="btn btn-primary" id="btn-next-section">Siguiente →</button>
+            </div>
+        </section>
+
+        <!-- ============ QUIZ VIEW ============ -->
+        <section id="view-quiz" class="view">
+            <header class="quiz-header">
+                <button class="btn btn-ghost btn-back" id="btn-back-module">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" fill="currentColor"/></svg>
+                    Volver
+                </button>
+                <div class="quiz-header-info">
+                    <h2 id="quiz-title">Evaluación</h2>
+                    <p id="quiz-subtitle">Módulo 01</p>
+                </div>
+                <div class="quiz-progress">
+                    <span id="quiz-counter">1/5</span>
+                </div>
+            </header>
+
+            <div class="quiz-content" id="quiz-content">
+                <div class="quiz-question">
+                    <h3 id="quiz-question-text"></h3>
+                    <div class="quiz-options" id="quiz-options"></div>
+                </div>
+                <div class="quiz-feedback hidden" id="quiz-feedback">
+                    <div class="feedback-icon" id="feedback-icon"></div>
+                    <p id="feedback-text"></p>
+                    <button class="btn btn-primary" id="btn-next-question">Siguiente pregunta</button>
+                </div>
+            </div>
+
+            <div class="quiz-progress-bar">
+                <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
+            </div>
+        </section>
+
+        <!-- ============ QUIZ RESULT VIEW ============ -->
+        <section id="view-quiz-result" class="view">
+            <div class="result-container">
+                <div class="result-icon" id="result-icon"></div>
+                <h2 id="result-title"></h2>
+                <p id="result-message"></p>
+                <div class="result-score">
+                    <div class="score-circle">
+                        <span class="score-value" id="score-value">0</span>
+                        <span class="score-label">%</span>
+                    </div>
+                </div>
+                <div class="result-details">
+                    <div class="result-stat correct">
+                        <span class="stat-num" id="correct-count">0</span>
+                        <span>Correctas</span>
+                    </div>
+                    <div class="result-stat incorrect">
+                        <span class="stat-num" id="incorrect-count">0</span>
+                        <span>Incorrectas</span>
+                    </div>
+                </div>
+                <div class="result-actions">
+                    <button class="btn btn-primary" id="btn-retry-quiz">Reintentar</button>
+                    <button class="btn btn-outline hidden" id="btn-go-dashboard">Ir al Dashboard</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CERTIFICATE VIEW ============ -->
+        <section id="view-certificate" class="view">
+            <div class="certificate-container">
+                <button class="btn btn-ghost btn-back" id="btn-back-from-cert">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" fill="currentColor"/></svg>
+                    Volver
+                </button>
+                <div class="certificate-preview" id="certificate-preview">
+                    <div class="cert-border">
+                        <div class="cert-inner">
+                            <div class="cert-logo">
+                                <svg viewBox="0 0 80 80" width="60" height="60">
+                                    <path d="M40 5 L70 20 L70 45 C70 62 55 75 40 78 C25 75 10 62 10 45 L10 20 Z" fill="var(--primary)"/>
+                                    <text x="40" y="48" text-anchor="middle" fill="white" font-size="18" font-weight="bold" font-family="Poppins">SST</text>
+                                </svg>
+                            </div>
+                            <p class="cert-label">CERTIFICADO</p>
+                            <h2 class="cert-title">Reinducción en Seguridad y Salud en el Trabajo</h2>
+                            <p class="cert-text">Otorgado a:</p>
+                            <h3 class="cert-name" id="cert-name">Nombre del Colaborador</h3>
+                            <p class="cert-text">Cédula: <span id="cert-id">0000000</span></p>
+                            <p class="cert-text">Por haber completado satisfactoriamente el curso de Reinducción SST 2.0</p>
+                            <p class="cert-text">con una duración de <strong>80 minutos</strong></p>
+                            <div class="cert-footer">
+                                <div class="cert-date">
+                                    <div class="cert-line"></div>
+                                    <p>Fecha: <span id="cert-date"></span></p>
+                                </div>
+                                <div class="cert-code">
+                                    <p>Código de verificación:</p>
+                                    <strong id="cert-code">SST-0000-0000</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cert-actions">
+                    <button class="btn btn-primary" id="btn-download-cert">📥 Descargar PDF</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ LINKS MODAL ============ -->
+        <div class="modal hidden" id="modal-links">
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>🔗 Enlaces de Interés</h2>
+                    <button class="modal-close" id="close-links-modal">✕</button>
+                </div>
+                <div class="modal-body">
+                    <a href="https://repo.cunapp.dev/web/2025/Seguridad-y-Salud-en-el-Trabajo/funciones-y-responsabilidades-de-SST.pdf" target="_blank" class="link-card">
+                        <span class="link-icon">📄</span>
+                        <div>
+                            <strong>Funciones y Responsabilidades SST</strong>
+                            <p>Conoce las funciones aplicables para todos los colaboradores</p>
+                        </div>
+                    </a>
+                    <a href="https://survey.zohopublic.com/zs/lLC5Vs" target="_blank" class="link-card">
+                        <span class="link-icon">📝</span>
+                        <div>
+                            <strong>Perfil Sociodemográfico</strong>
+                            <p>Formulario obligatorio para todo colaborador</p>
+                        </div>
+                    </a>
+                    <a href="https://cun.edu.co/administrativos/seguridad-y-salud-en-el-trabajo/" target="_blank" class="link-card">
+                        <span class="link-icon">🌐</span>
+                        <div>
+                            <strong>Página Oficial SST CUN</strong>
+                            <p>Información completa sobre Seguridad y Salud en el Trabajo</p>
+                        </div>
+                    </a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScTbf29kWUv_MMMiyeZZ73Xchxpm1mvNmIk72a9bxP7X0GQhg/viewform" target="_blank" class="link-card">
+                        <span class="link-icon">📱</span>
+                        <div>
+                            <strong>QR Novedades SST</strong>
+                            <p>Reporta incidentes, actos o condiciones inseguras</p>
+                        </div>
+                    </a>
+                    <div class="link-card link-card-contact">
+                        <span class="link-icon">📧</span>
+                        <div>
+                            <strong>Correos de Contacto</strong>
+                            <p><strong>SST:</strong> sst@cun.edu.co</p>
+                            <p><strong>COPASST:</strong> copasst@cun.edu.co</p>
+                            <p><strong>Convivencia:</strong> comiteconvivencialaboral@cun.edu.co</p>
+                            <p><strong>Equidad:</strong> generoydiversidad@cun.edu.co</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ INFO MODAL WITH MASCOT ============ -->
+        <div class="modal hidden" id="modal-info">
+            <div class="modal-overlay"></div>
+            <div class="modal-content info-modal-content">
+                <div class="modal-header">
+                    <h2 id="modal-info-title">ℹ️ Información</h2>
+                    <button class="modal-close" id="close-info-modal">✕</button>
+                </div>
+                <div class="modal-body" style="display:flex; gap: 1rem; align-items: center;">
+                    <img src="assets/img/mascot_original.png" alt="Mascota SST" style="width: 150px; border-radius: 10px;">
+                    <p id="modal-info-text" style="flex: 1; font-size: 1.1rem; line-height: 1.5;"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ FLOATING THEME TOGGLE ============ -->
+        <button class="theme-toggle-float" id="theme-toggle-float" title="Cambiar tema claro/oscuro" aria-label="Cambiar tema">
+            <span class="theme-toggle-icon" id="theme-icon-float">☀️</span>
+        </button>
+
+        <!-- ============ FLOATING NOTES TOGGLE ============ -->
+        <button class="notes-toggle-float" id="notes-toggle-float" title="Mis Notas del Curso" aria-label="Abrir Notas">
+            <span>📝</span>
+        </button>
+
+        <!-- ============ NOTES DRAWER ============ -->
+        <div class="notes-drawer-overlay" id="notes-drawer-overlay"></div>
+        <div class="notes-drawer" id="notes-drawer">
+            <div class="notes-drawer-header">
+                <h3><span>📝</span> Mis Notas</h3>
+                <button class="notes-drawer-close" id="notes-drawer-close">✕</button>
+            </div>
+            <div class="notes-drawer-content">
+                <div class="notes-form">
+                    <label for="note-module-select">Módulo Asociado</label>
+                    <select id="note-module-select" class="notes-select">
+                        <option value="general">General / Todo el Curso</option>
+                        <option value="1">Módulo 1: Fundamentos de SST</option>
+                        <option value="2">Módulo 2: Planes de Emergencia</option>
+                        <option value="3">Módulo 3: Accidente, Incidente y Enf.</option>
+                        <option value="4">Módulo 4: Actos y Condiciones Inseg.</option>
+                        <option value="5">Módulo 5: Peligros, Autocuidado y Equipos</option>
+                        <option value="6">Módulo 6: Comités de SST</option>
+                    </select>
+
+                    <label for="note-text">Escribe tu nota</label>
+                    <textarea id="note-text" class="notes-textarea" placeholder="Escribe tus apuntes aquí..."></textarea>
+                    
+                    <button class="btn btn-primary btn-full" id="btn-save-note" style="margin-top: 0.5rem;">Guardar Nota</button>
+                </div>
+
+                <div class="notes-list-section">
+                    <div class="notes-list-title">Notas Guardadas</div>
+                    <div id="notes-list" class="notes-list">
+                        <p style="text-align: center; color: var(--text-light); font-size: 0.85rem; margin-top: 1rem;">No tienes notas guardadas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ CONFETTI CANVAS ============ -->
+        <canvas id="confetti-canvas" class="confetti-canvas"></canvas>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+    
+    <!-- Supabase Integración -->
+    <script src="js/supabase.js"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/supabase-db.js"></script>
+
+    <!-- Google Sheets Sincronización -->
+    <script src="js/google-sheets-config.js"></script>
+    <script src="js/google-sheets-sync.js"></script>
+
+    <script src="js/progress.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/data_activities.js"></script>
+    <script src="js/data_quizzes.js"></script>
+    <script src="js/activities.js"></script>
+    <script src="js/certificate.js"></script>
+    <script src="js/modules/modulo1.js"></script>
+    <script src="js/modules/modulo2.js"></script>
+    <script src="js/modules/modulo3.js"></script>
+    <script src="js/modules/modulo4.js"></script>
+    <script src="js/modules/modulo5.js"></script>
+    <script src="js/modules/modulo6.js"></script>
+    <script src="js/notes.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

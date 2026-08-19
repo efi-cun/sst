@@ -1,0 +1,263 @@
+{
+  "modulo1": [
+    {
+      "type": "quiz",
+      "pregunta": "¿Qué significa SG-SST?",
+      "opciones": [
+        "Sistema de Gestión de Seguridad y Salud en el Trabajo",
+        "Sistema General de Servicios Sociales y Tributarios",
+        "Sistema de Garantía de Seguridad y Salud Total",
+        "Servicio General de Seguridad y Salud del Trabajador"
+      ],
+      "correcta": 0,
+      "explicacion": "El SG-SST es el Sistema de Gestión de Seguridad y Salud en el Trabajo."
+    },
+    {
+      "type": "true-false",
+      "afirmacion": "La ARL a la que están afiliados los colaboradores de la CUN es Positiva.",
+      "valor": false,
+      "explicacion": "La ARL de la CUN es AURORA Seguros de Vida, no Positiva."
+    },
+    {
+      "type": "match",
+      "instruccion": "Relaciona cada concepto con su definición",
+      "pares": [
+        { "izq": "SG-SST", "der": "Sistema para prevenir AT y EL" },
+        { "izq": "ARL", "der": "Aseguradora de riesgos laborales" },
+        { "izq": "Gestión Ambiental", "der": "Cultura sostenible CUNista" },
+        { "izq": "Política SST", "der": "Compromiso institucional de prevención" }
+      ]
+    },
+    {
+      "type": "quiz",
+      "pregunta": "¿Cuál es uno de los objetivos de la Gestión Ambiental?",
+      "opciones": [
+        "Aumentar el consumo de papel",
+        "Ignorar la normativa ambiental",
+        "Usar más plástico en las oficinas",
+        "Prevenir y controlar los impactos ambientales"
+      ],
+      "correcta": 3,
+      "explicacion": "La Gestión Ambiental busca prevenir y controlar los impactos ambientales."
+    },
+    {
+      "type": "true-false",
+      "afirmacion": "La Política de SST de la CUN incluye el compromiso de identificar oportunamente cada peligro y valorar los riesgos.",
+      "valor": true,
+      "explicacion": "Correcto. La identificación de peligros y valoración de riesgos es un compromiso clave de la Política SST."
+    }
+  ],
+  "modulo2": [
+    {
+      "type": "sequence",
+      "instruccion": "Ordena los pasos correctos ante una emergencia",
+      "pasos": [
+        "Mantener la calma",
+        "Seguir las instrucciones de la brigada",
+        "Dirigirse por la ruta de evacuación señalizada",
+        "Llegar al punto de reunión",
+        "Esperar instrucciones de la brigada para regresar"
+      ]
+    },
+    {
+      "type": "quiz",
+      "pregunta": "¿Qué es la Brigada de Emergencias?",
+      "opciones": [
+        "Un grupo de trabajadores organizados y capacitados para prevenir y reaccionar ante emergencias",
+        "Un grupo externo de bomberos",
+        "Un comité de bienestar corporativo",
+        "Una empresa de seguridad privada"
+      ],
+      "correcta": 0,
+      "explicacion": "La Brigada es el grupo de trabajadores capacitados para prevenir y reaccionar ante emergencias."
+    },
+    {
+      "type": "true-false",
+      "afirmacion": "Cada sede de la CUN tiene el mismo plan de emergencias.",
+      "valor": false,
+      "explicacion": "Cada sede tiene su propio plan de emergencias adaptado a sus características y riesgos."
+    }
+  ],
+  "modulo3": [
+    {
+      "type": "sort",
+      "instruccion": "Clasifica cada elemento como Accidente (AT), Incidente o Enfermedad Laboral (EL)",
+      "categorias": ["Accidente AT", "Incidente", "Enfermedad EL"],
+      "elementos": [
+        { "texto": "Caída con fractura", "categoria": "Accidente AT" },
+        { "texto": "Resbalón sin caída", "categoria": "Incidente" },
+        { "texto": "Lumbalgia por postura", "categoria": "Enfermedad EL" },
+        { "texto": "Corte con herramienta", "categoria": "Accidente AT" },
+        { "texto": "Objeto que cae sin impactar", "categoria": "Incidente" },
+        { "texto": "Hipoacusia por ruido", "categoria": "Enfermedad EL" }
+      ]
+    },
+    {
+      "type": "quiz",
+      "pregunta": "¿A qué correo se debe reportar un accidente de trabajo?",
+      "opciones": [
+        "sst@cun.edu.co",
+        "rrhh@cun.edu.co",
+        "gerencia@cun.edu.co",
+        "soporte@cun.edu.co"
+      ],
+      "correcta": 0,
+      "explicacion": "Todo accidente de trabajo se debe reportar al correo sst@cun.edu.co."
+    },
+    {
+      "type": "true-false",
+      "afirmacion": "Un incidente laboral es un evento que siempre causa daño al trabajador.",
+      "valor": false,
+      "explicacion": "Un incidente NO causa daño, pero es una advertencia de que pudo haber sido un accidente."
+    },
+    {
+      "type": "quiz",
+      "pregunta": "¿Qué es una enfermedad laboral?",
+      "opciones": [
+        "Una enfermedad común contraída fuera del trabajo",
+        "La contraída por exposición a factores de riesgo inherentes a la actividad laboral",
+        "Un accidente repentino en el trabajo",
+        "Una lesión por un solo evento"
+      ],
+      "correcta": 1,
+      "explicacion": "Una enfermedad laboral se contrae por exposición prolongada a factores de riesgo en el trabajo."
+    },
+    {
+      "type": "true-false",
+      "afirmacion": "El primer paso para reportar un accidente es esperar al final del turno.",
+      "valor": false,
+      "explicacion": "Se debe notificar inmediatamente al líder y al área de SST. No esperar."
+    }
+  ],
+  "modulo4": [
+    {
+      "type": "sort",
+      "instruccion": "Clasifica cada ejemplo como Acto Inseguro o Condición Insegura",
+      "categorias": ["Acto Inseguro", "Condición Insegura"],
+      "elementos": [
+        { "texto": "No usar EPP", "categoria": "Acto Inseguro" },
+        { "texto": "Piso mojado sin señalizar", "categoria": "Condición Insegura" },
+        { "texto": "No seguir protocolos", "categoria": "Acto Inseguro" },
+        { "texto": "Iluminación insuficiente", "categoria": "Condición Insegura" },
+        { "texto": "Manipular sin formación", "categoria": "Acto Inseguro" },
+        { "texto": "Cables eléctricos expuestos", "categoria": "Condición Insegura" }
+      ]
+    },
+    {
+      "type": "quiz",
+      "pregunta": "¿Qué es un peligro según la GTC 45?",
+      "opciones": [
+        "Fuente, situación o acto con potencial de daño",
+        "La probabilidad de que ocurra un daño",
+        "El resultado de un accidente",
+        "La severidad de una lesión"
+      ],
+      "correcta": 0,
+      "explicacion": "Un peligro es la fuente, situación o acto con potencial de daño en términos de enfermedad o lesión."
+    },
+    {
+      "type": "true-false",
+      "afirmacion": "El riesgo es la combinación de la probabilidad y la severidad de un evento peligroso.",
+      "valor": true,
+      "explicacion": "Correcto. El riesgo = probabilidad × severidad, según la GTC 45."
+    },
+    {
+      "type": "quiz",
+      "pregunta": "¿Cuál es un ejemplo de acto inseguro?",
+      "opciones": [
+        "Piso mojado sin señalización",
+        "No usar los elementos ergonómicos de manera adecuada",
+        "Iluminación insuficiente",
+        "Cables eléctricos expuestos"
+      ],
+      "correcta": 1,
+      "explicacion": "No usar elementos ergonómicos es un comportamiento del trabajador, es decir, un acto inseguro."
+    },
+    {
+      "type": "true-false",
+      "afirmacion": "Un cable eléctrico expuesto es un acto inseguro.",
+      "valor": false,
+      "explicacion": "Un cable expuesto es una condición insegura (circunstancia del entorno), no un acto del trabajador."
+    }
+  ],
+  "modulo5": [
+    {
+      "type": "match",
+      "instruccion": "Relaciona cada tipo de peligro con su ejemplo",
+      "pares": [
+        { "izq": "🦠 Biológico", "der": "Virus y bacterias" },
+        { "izq": "🔊 Físico", "der": "Ruido excesivo" },
+        { "izq": "🧪 Químico", "der": "Vapores tóxicos" },
+        { "izq": "🧠 Psicosocial", "der": "Carga mental excesiva" },
+        { "izq": "💪 Biomecánico", "der": "Posturas inadecuadas" },
+        { "izq": "⚡ Seguridad", "der": "Riesgo eléctrico" },
+        { "izq": "🌊 Natural", "der": "Sismos e inundaciones" }
+      ]
+    },
+    {
+      "type": "quiz",
+      "pregunta": "¿Qué son las pausas activas?",
+      "opciones": [
+        "Periodos de recuperación que siguen a los periodos de tensión generados por el trabajo",
+        "Descansos largos durante la jornada",
+        "Actividades deportivas obligatorias",
+        "Tiempo libre no programado"
+      ],
+      "correcta": 0,
+      "explicacion": "Las pausas activas son periodos de recuperación tras la tensión generada por el trabajo."
+    },
+    {
+      "type": "true-false",
+      "afirmacion": "Se pueden encender máquinas sin orden para verificar su estado.",
+      "valor": false,
+      "explicacion": "Nunca encienda máquinas sin orden. Solo opere equipos para los que fue contratado."
+    },
+    {
+      "type": "quiz",
+      "pregunta": "¿Cuál es la consecuencia posible del peligro biomecánico?",
+      "opciones": [
+        "Hipoacusia",
+        "Lumbalgia o hernias",
+        "Intoxicación",
+        "Electrocución"
+      ],
+      "correcta": 1,
+      "explicacion": "Los peligros biomecánicos pueden causar lumbalgia o hernias por posturas inadecuadas o cargas."
+    },
+    {
+      "type": "true-false",
+      "afirmacion": "Los peligros psicosociales pueden causar estrés y ansiedad.",
+      "valor": true,
+      "explicacion": "Correcto. La carga mental, la jornada prolongada y el acoso son peligros psicosociales."
+    }
+  ],
+  "modulo6": [
+    {
+      "type": "match",
+      "instruccion": "Relaciona cada comité con su función principal",
+      "pares": [
+        { "izq": "🛡️ COPASST", "der": "Vigilar normas de SST" },
+        { "izq": "🤝 Convivencia", "der": "Prevenir acoso laboral" },
+        { "izq": "🌈 Equidad", "der": "Violencia de género e inclusión" }
+      ]
+    },
+    {
+      "type": "quiz",
+      "pregunta": "¿A qué comité se debe acudir en caso de acoso laboral?",
+      "opciones": [
+        "Comité de Convivencia Laboral",
+        "COPASST",
+        "Comité de Equidad y Diversidad",
+        "Recursos Humanos"
+      ],
+      "correcta": 0,
+      "explicacion": "El Comité de Convivencia Laboral previene el acoso laboral."
+    },
+    {
+      "type": "true-false",
+      "afirmacion": "El correo del Comité de Equidad de Género y Diversidad es generoydiversidad@cun.edu.co.",
+      "valor": true,
+      "explicacion": "Correcto. El correo de contacto del Comité de Equidad es generoydiversidad@cun.edu.co."
+    }
+  ]
+}
